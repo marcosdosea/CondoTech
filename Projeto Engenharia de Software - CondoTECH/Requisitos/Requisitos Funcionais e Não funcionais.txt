@@ -1,0 +1,20 @@
+Requisitos funcionais:
+1 - cadastrar condomínio
+2 - cadastrar condômino com CPF e senha próprios
+3 - Autenticar condômino na base de dados
+4 - cadastrar área comum
+5 - reservar área comum
+6 - cadastrar ocorrência com descrição e tipo
+7 - cadastrar tarefa recorrente
+9 - cadastrar notificação
+10 - visualizar notificações
+11 - visualizar tarefas recorrentes
+12 - Implementar interfaces diferentes para os tipos de usuários cadastrados (síndico, condômino)
+
+Requisitos não-funcionais:
+1 - Tempo de resposta das requisições deve ser de até 30seg.
+2 - Ser um sistema web responsivo 
+3 - Deve ser desenvolvido em C#
+4 - O limite de reservas por usuário deve ser 3 por semana
+5- As notificações de reunião terão um destaque maior e deverão ser confirmadas
+pelos condôminos.
