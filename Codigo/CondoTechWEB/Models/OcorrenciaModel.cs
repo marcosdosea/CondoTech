@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations
 
-namespace Models
+namespace CondoTechWEB.Models
 {
     public class OcorrenciaModel
     {
