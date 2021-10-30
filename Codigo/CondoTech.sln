@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31727.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CondoTechWEB", "CondoTechWEB\CondoTechWEB.csproj", "{77D7D763-59B6-4DDD-85DA-B02800D64028}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{3255CC91-0CFF-4E7B-B88D-140F5722D0E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{94465679-7788-4C09-8DAE-C388A8A6D955}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77D7D763-59B6-4DDD-85DA-B02800D64028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77D7D763-59B6-4DDD-85DA-B02800D64028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77D7D763-59B6-4DDD-85DA-B02800D64028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77D7D763-59B6-4DDD-85DA-B02800D64028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3255CC91-0CFF-4E7B-B88D-140F5722D0E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3255CC91-0CFF-4E7B-B88D-140F5722D0E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3255CC91-0CFF-4E7B-B88D-140F5722D0E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3255CC91-0CFF-4E7B-B88D-140F5722D0E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94465679-7788-4C09-8DAE-C388A8A6D955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94465679-7788-4C09-8DAE-C388A8A6D955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94465679-7788-4C09-8DAE-C388A8A6D955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94465679-7788-4C09-8DAE-C388A8A6D955}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {400B1EF7-12BD-45B6-B12F-5BB131CB71DE}
+	EndGlobalSection
+EndGlobal
