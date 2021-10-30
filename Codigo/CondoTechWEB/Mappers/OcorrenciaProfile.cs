@@ -7,7 +7,7 @@ using AutoMapper;
 using Models;
 using Core;
 
-namespace Mappers
+namespace CondoTechWEB.Mappers
 {
     public class OcorrenciaProfile : Profile
     {
