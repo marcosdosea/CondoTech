@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\CondoTechWEB\\CondoTechWEB.csproj": {}
+    "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\CondoTechWEB\\CondoTechWEB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\CondoTechWEB\\CondoTechWEB.csproj": {
+    "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\CondoTechWEB\\CondoTechWEB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\CondoTechWEB\\CondoTechWEB.csproj",
+        "projectUniqueName": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\CondoTechWEB\\CondoTechWEB.csproj",
         "projectName": "CondoTechWEB",
-        "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\CondoTechWEB\\CondoTechWEB.csproj",
-        "packagesPath": "C:\\Users\\Raul\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\CondoTechWEB\\obj\\",
+        "projectPath": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\CondoTechWEB\\CondoTechWEB.csproj",
+        "packagesPath": "C:\\Users\\Guilherme\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\CondoTechWEB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Raul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Guilherme\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj"
+              "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Core\\Core.csproj"
               },
-              "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Service\\Service.csproj": {
-                "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Service\\Service.csproj"
+              "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Service\\Service.csproj": {
+                "projectPath": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Service\\Service.csproj"
               }
             }
           }
@@ -74,17 +74,17 @@
         }
       }
     },
-    "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj": {
+    "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\Raul\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Core\\obj\\",
+        "projectPath": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\Guilherme\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Raul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Guilherme\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -140,17 +140,17 @@
         }
       }
     },
-    "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Service\\Service.csproj": {
+    "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Service\\Service.csproj",
+        "projectUniqueName": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Service\\Service.csproj",
-        "packagesPath": "C:\\Users\\Raul\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Service\\obj\\",
+        "projectPath": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Service\\Service.csproj",
+        "packagesPath": "C:\\Users\\Guilherme\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Raul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Guilherme\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -164,8 +164,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj"
+              "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Core\\Core.csproj"
               }
             }
           }
