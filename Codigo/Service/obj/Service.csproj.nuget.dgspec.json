@@ -1,7 +1,8 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Service\\Service.csproj": {}
+<<<<<<< 020356f0986bfddd494bc56fa2485804e6824abc
+    "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Service\\Service.csproj": {}
   },
   "projects": {
     "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Core\\Core.csproj": {
@@ -14,7 +15,23 @@
         "outputPath": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Guilherme\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Raul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Service\\Service.csproj": {}
+  },
+  "projects": {
+    "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\Core.csproj",
+        "projectName": "Core",
+        "projectPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\MasterOv\\.nuget\\packages\\",
+        "outputPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\MasterOv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> resolução #65
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -70,7 +87,8 @@
         }
       }
     },
-    "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Service\\Service.csproj": {
+<<<<<<< 020356f0986bfddd494bc56fa2485804e6824abc
+    "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Service\\Service.csproj",
@@ -80,7 +98,20 @@
         "outputPath": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Guilherme\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Raul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Service\\Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Service\\Service.csproj",
+        "projectName": "Service",
+        "projectPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Service\\Service.csproj",
+        "packagesPath": "C:\\Users\\MasterOv\\.nuget\\packages\\",
+        "outputPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\MasterOv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> resolução #65
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -94,8 +125,13 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Guilherme\\source\\repos\\CondoTech\\Core\\Core.csproj"
+<<<<<<< 020356f0986bfddd494bc56fa2485804e6824abc
+              "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj"
+=======
+              "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\Core.csproj": {
+                "projectPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\Core.csproj"
+>>>>>>> resolução #65
               }
             }
           }
