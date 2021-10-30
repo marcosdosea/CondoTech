@@ -6586,11 +6586,16 @@
     ]
   },
   "packageFolders": {
+<<<<<<< 020356f0986bfddd494bc56fa2485804e6824abc
     "C:\\Users\\Raul\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\MasterOv\\.nuget\\packages\\": {}
+>>>>>>> resolução #65
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< 020356f0986bfddd494bc56fa2485804e6824abc
       "projectUniqueName": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\CondoTechWEB\\CondoTechWEB.csproj",
       "projectName": "CondoTechWEB",
       "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\CondoTechWEB\\CondoTechWEB.csproj",
@@ -6599,6 +6604,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Raul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\CondoTechWEB\\CondoTechWEB.csproj",
+      "projectName": "CondoTechWEB",
+      "projectPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\CondoTechWEB\\CondoTechWEB.csproj",
+      "packagesPath": "C:\\Users\\MasterOv\\.nuget\\packages\\",
+      "outputPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\CondoTechWEB\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\MasterOv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> resolução #65
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6612,11 +6627,19 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+<<<<<<< 020356f0986bfddd494bc56fa2485804e6824abc
             "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj": {
               "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj"
             },
             "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Service\\Service.csproj": {
               "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\CondoTech\\Codigo\\Service\\Service.csproj"
+=======
+            "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\Core.csproj": {
+              "projectPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\Core.csproj"
+            },
+            "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Service\\Service.csproj": {
+              "projectPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Service\\Service.csproj"
+>>>>>>> resolução #65
             }
           }
         }
