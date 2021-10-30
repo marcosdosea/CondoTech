@@ -18,11 +18,5 @@ namespace Core.Service
         Tarefarecorrente Buscar(int IdTarefaRecorrente);
 
         bool Validar(Tarefarecorrente tarefa);
-
-        IEnumerable<Tarefarecorrente> ObterporNome(string nome);
-
-        IEnumerable<Tarefarecorrente> ObterTodos();
-
-        IEnumerable<TarefaRecorrenteDTO> ObterPorNomeOrdenadoDescendente(string nome);
     }
 }
