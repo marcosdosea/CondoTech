@@ -1,0 +1,5 @@
+D:\UFS\2021.1\Engenharia de Software 2\CONDOTECH\CondoTech-main\Codigo\Service\obj\Debug\net5.0\Service.csproj.AssemblyReference.cache
+D:\UFS\2021.1\Engenharia de Software 2\CONDOTECH\CondoTech-main\Codigo\Service\obj\Debug\net5.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\UFS\2021.1\Engenharia de Software 2\CONDOTECH\CondoTech-main\Codigo\Service\obj\Debug\net5.0\Service.AssemblyInfoInputs.cache
+D:\UFS\2021.1\Engenharia de Software 2\CONDOTECH\CondoTech-main\Codigo\Service\obj\Debug\net5.0\Service.AssemblyInfo.cs
+D:\UFS\2021.1\Engenharia de Software 2\CONDOTECH\CondoTech-main\Codigo\Service\obj\Debug\net5.0\Service.csproj.CoreCompileInputs.cache
