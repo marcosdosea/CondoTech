@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    class TarefaRecorrenteService : ITarefaRecorrenteService
+    public class TarefaRecorrenteService : ITarefaRecorrenteService
     {
         private readonly CondoTechContext _context;
 

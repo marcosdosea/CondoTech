@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    class AreacomumService : IAreacomumService
+    public class AreacomumService : IAreacomumService
     {
 
         private readonly CondoTechContext _context;

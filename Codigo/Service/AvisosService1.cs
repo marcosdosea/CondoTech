@@ -8,7 +8,7 @@ using Core.Service;
 
 namespace Service
 {
-    class AvisosService : IAvisoService
+    public class AvisosService : IAvisoService
     {
         private readonly CondoTechContext _context;
 
