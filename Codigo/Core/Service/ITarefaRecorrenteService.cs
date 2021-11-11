@@ -18,5 +18,9 @@ namespace Core.Service
         Tarefarecorrente Buscar(int IdTarefaRecorrente);
 
         bool Validar(Tarefarecorrente tarefa);
+
+        IEnumerable<Tarefarecorrente> GetAll();
+
+        IQueryable<Tarefarecorrente> GetQuery();
     }
 }

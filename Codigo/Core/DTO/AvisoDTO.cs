@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    public string Descricao { get; set; }
-    public DateTime? Data { get; set; }
-
     public class AvisoDTO
     {
+        public string Descricao { get; set; }
+        public DateTime? Data { get; set; }
 
     }
 }

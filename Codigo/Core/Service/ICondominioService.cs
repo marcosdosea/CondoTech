@@ -10,9 +10,9 @@ namespace Core.Service
     {
         int InserirCondominio(Condominio cond);
         void ValidarCondominio(Condominio cond);
-        Condominio BuscarCondominio(Condominio cond);
-        void RemoverCondominio(Condominio cond);
+        Condominio BuscarCondominio(int IdCondominio);
+        void RemoverCondominio(int IdCondominio);
         void AlterarCondominio(Condominio cond);
-        Condominio AlterarCondominio(int id);
+        //Condominio AlterarCondominio(int id);
     }
 }
