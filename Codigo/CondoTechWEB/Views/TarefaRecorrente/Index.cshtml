@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CondoTechWEB.Models.TarefaRecorrenteModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTarefaRecorrente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PessoaIdPessoa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTarefaRecorrente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PessoaIdPessoa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.IdTarefaRecorrente }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdTarefaRecorrente }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdTarefaRecorrente })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

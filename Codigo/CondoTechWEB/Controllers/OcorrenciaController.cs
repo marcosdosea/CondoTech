@@ -1,5 +1,6 @@
 using AutoMapper;
 using CondoTechWEB.Models;
+using Core;
 using Core.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -24,11 +25,11 @@ namespace CondoTechWEB.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public OcorrenciaResult Create(OcorrenciaModel ocorrenciaModel)
+        public ActionResult Create(OcorrenciaModel ocorrenciaModel)
         {
             if (ModelState.IsValid)
             {
-                var ocorrencia = _mapper.Map<Ocorrencias>(OcorrenciaModel);
+                var ocorrencia = _mapper.Map<Ocorrencias>(ocorrenciaModel);
                 _ocorrenciaService.Inserir(ocorrencia);
             }
             return RedirectToAction(nameof(Index));
@@ -36,7 +37,7 @@ namespace CondoTechWEB.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public OcorrenciaResult Delete(int id, OcorrenciaModel ocorrenciaModel)
+        public ActionResult Delete(int id, OcorrenciaModel ocorrenciaModel)
         {
             _ocorrenciaService.Remover(id);
             return RedirectToAction(nameof(Index));

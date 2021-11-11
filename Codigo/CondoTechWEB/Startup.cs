@@ -1,6 +1,10 @@
+using Core;
+using Core.Service;
+using Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Services;
 
 namespace CondoTechWEB
 {
@@ -24,6 +29,26 @@ namespace CondoTechWEB
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //Injeção de dependência DBContext
+            services.AddDbContext<CondoTechContext>(options =>
+                options.UseMySQL(
+                    Configuration.GetConnectionString("CondoTechConnection")));
+
+            //Injeção de dependência Services
+            services.AddTransient<IAreacomumService, AreacomumService>();
+            services.AddTransient<IAvisoService, AvisosService>();
+            services.AddTransient<ICondominioService, CondominioService>();
+            services.AddTransient<IOcorrenciaService, OcorrenciaService>();
+            services.AddTransient<ITarefaRecorrenteService, TarefaRecorrenteService>();
+            services.AddTransient<IPessoaService, PessoaService>();
+
+
+            //Injeção de dependência Mapper
+            services.AddAutoMapper(typeof(Startup).Assembly);
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

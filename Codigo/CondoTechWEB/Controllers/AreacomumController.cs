@@ -24,6 +24,11 @@ namespace CondoTechWEB.Controllers
 		}
 
 
+		public ActionResult Index()
+        {
+			return View();
+        }
+
 		// GET: AreacomumController/Details/5
 		public ActionResult Details(int id)
 		{
@@ -36,13 +41,28 @@ namespace CondoTechWEB.Controllers
 		[Authorize]
 		public ActionResult Create()
 		{
+
 			return View();
 		}
 
 		// POST: AreacomumController/Create
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create(AreacomumModel areacomumModel)
+
+
+
+		public ActionResult Create(IFormCollection collection)
+		{
+			try
+			{
+				return RedirectToAction(nameof(Index));
+			}
+			catch
+			{
+				return View();
+			}
+		}
+		/*public ActionResult Create(AreacomumModel areacomumModel)
 		{
 			if (ModelState.IsValid)
 			{
@@ -51,7 +71,7 @@ namespace CondoTechWEB.Controllers
 			}
 			return RedirectToAction(nameof(Index));
 		}
-
+		*/
 		// GET: AreacomumController/Edit/5
 		public ActionResult Edit(int id)
 		{
