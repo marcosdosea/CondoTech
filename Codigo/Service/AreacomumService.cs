@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    class AreacomumService : IAreacomumService
+    public class AreacomumService : IAreacomumService
     {
 
         private readonly CondoTechContext _context;
@@ -37,7 +37,8 @@ namespace Service
         /// <returns>retorna a area comum ou nulo quando não for encontrado</returns>
         public Areacomum Buscar(int idAreacomum)
         {
-            return _context.Areacomum.Find(idAreacomum);
+            var _areacomum = _context.Areacomum.Find(idAreacomum);
+            return _areacomum;
         }
 
         /// <summary>
@@ -74,8 +75,7 @@ namespace Service
         //apenas para ter algo implementado
         public bool Validar(Areacomum areacomum)
         {
-            bool validacao = true;
-            return validacao;
+            throw new NotImplementedException();
         }
     }
 }

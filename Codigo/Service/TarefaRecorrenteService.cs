@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    class TarefaRecorrenteService : ITarefaRecorrenteService
+    public class TarefaRecorrenteService : ITarefaRecorrenteService
     {
         private readonly CondoTechContext _context;
 
@@ -31,6 +31,7 @@ namespace Service
 
         public int Inserir(Tarefarecorrente tarefa)
         {
+
             _context.Add(tarefa);
             _context.SaveChanges();
             return tarefa.IdTarefaRecorrente;
@@ -46,6 +47,18 @@ namespace Service
         public bool Validar(Tarefarecorrente tarefa)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Tarefarecorrente> GetAll()
+        {
+            return GetQuery();
+        }
+
+        public IQueryable<Tarefarecorrente>GetQuery()
+        {
+            var query = from Tarefarecorrente in _context.Tarefarecorrente
+                        select Tarefarecorrente;
+            return query;
         }
     }
 }

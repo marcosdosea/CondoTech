@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    class OcorrenciaService : IOcorrenciaService
+    public class OcorrenciaService : IOcorrenciaService
     {
         private readonly CondoTechContext _context;
 
