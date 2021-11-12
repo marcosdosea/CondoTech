@@ -20,5 +20,8 @@ namespace CondoTechWEB.Models
         [Display(Name = "Data de Publicação")]
         [DataType(DataType.Date, ErrorMessage = "É necessário uma data válida")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/YYYY}")]
+
+        //Coloquei temporariamente para tentar resolver os erros (raul)
+        public DateTime Data { get; set; }
     }
 }

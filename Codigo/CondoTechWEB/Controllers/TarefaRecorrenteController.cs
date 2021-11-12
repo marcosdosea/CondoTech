@@ -1,5 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using CondoTechWEB.Models;
+using Core;
+using Core.Service;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,79 +14,104 @@ namespace CondoTechWEB.Controllers
 {
     public class TarefaRecorrenteController : Controller
     {
+
+        private readonly ITarefaRecorrenteService _tarefarecorrenteService;
+        private readonly IPessoaService _pessoaService;
+        private readonly IMapper _mapper;
+
+        public TarefaRecorrenteController(ITarefaRecorrenteService tarefarecorrenteService, IPessoaService pessoaService, IMapper mapper)
+        {
+            _tarefarecorrenteService = tarefarecorrenteService;
+            _pessoaService = pessoaService;
+            _mapper = mapper;
+        }
+
         // GET: TarefaRecorrenteController
         public ActionResult Index()
         {
-            return View();
+            var listarTarefasRecorrentes = _tarefarecorrenteService.GetAll();
+            var listarTarefasRecorrentesModel = _mapper.Map<List<TarefaRecorrenteModel>>(listarTarefasRecorrentes);
+
+            return View(listarTarefasRecorrentesModel);
         }
+
+
 
         // GET: TarefaRecorrenteController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Tarefarecorrente tarefarecorrente = _tarefarecorrenteService.Buscar(id);
+            TarefaRecorrenteModel tarefaRecorrenteModel = _mapper.Map<TarefaRecorrenteModel>(tarefarecorrente);
+            return View(tarefaRecorrenteModel);
         }
 
         // GET: TarefaRecorrenteController/Create
         public ActionResult Create()
         {
+            IEnumerable<Pessoa> listapessoas = _pessoaService.GetAll();
+            ViewBag.IdPessoa = new SelectList(listapessoas, "IdPessoa", "Nome", null);
             return View();
         }
 
         // POST: TarefaRecorrenteController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(TarefaRecorrenteModel tarefaRecorrenteModel)
         {
-            try
+            /*var tarefarecorrente = _mapper.Map<Tarefarecorrente>(tarefaRecorrenteModel);
+            _tarefarecorrenteService.Inserir(tarefarecorrente);
+            return RedirectToAction(nameof(Index));*/
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                var tarefarecorrente = _mapper.Map<Tarefarecorrente>(tarefaRecorrenteModel);
+                _tarefarecorrenteService.Inserir(tarefarecorrente);
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: TarefaRecorrenteController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            IEnumerable<Pessoa> listapessoas = _pessoaService.GetAll();
+            ViewBag.IdPessoa = new SelectList(listapessoas, "IdPessoa", "Nome", null);
+
+            Tarefarecorrente tarefarecorrente = _tarefarecorrenteService.Buscar(id);
+            TarefaRecorrenteModel tarefaRecorrenteModel = _mapper.Map<TarefaRecorrenteModel>(tarefarecorrente);
+
+            return View(tarefaRecorrenteModel);
         }
 
         // POST: TarefaRecorrenteController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, TarefaRecorrenteModel tarefaRecorrenteModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                var tarefarecorrente = _mapper.Map<Tarefarecorrente>(tarefaRecorrenteModel);
+
+                tarefarecorrente.IdTarefaRecorrente = id;
+                _tarefarecorrenteService.Alterar(tarefarecorrente);
+
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: TarefaRecorrenteController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Tarefarecorrente tarefarecorrente = _tarefarecorrenteService.Buscar(id);
+            TarefaRecorrenteModel tarefaRecorrenteModel = _mapper.Map<TarefaRecorrenteModel>(tarefarecorrente);
+            return View(tarefaRecorrenteModel);
         }
 
         // POST: TarefaRecorrenteController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, TarefaRecorrenteModel tarefaRecorrenteModel)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _tarefarecorrenteService.Remover(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

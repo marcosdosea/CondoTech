@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using Models;
 using Core;
+using CondoTechWEB.Models;
 
 namespace CondoTechWEB.Mappers
 {

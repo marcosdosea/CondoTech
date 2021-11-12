@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Core;
 using Core.Service;
-
+/*
 namespace Service
 {
-    class CondominioService : ICondominioService
+    public class CondominioService : ICondominioService
     {
         private readonly CondoTechContext _context;
 
@@ -48,3 +48,4 @@ namespace Service
         }
     }
 }
+*/

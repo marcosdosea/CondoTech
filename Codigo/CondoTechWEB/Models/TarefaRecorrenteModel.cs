@@ -13,6 +13,11 @@ namespace CondoTechWEB.Models
         [Required(ErrorMessage = "Código é obrigatório")]
         public int IdTarefaRecorrente { get; set; }
 
+        [Display(Name = "ID Pessoa")]
+        [Range(0, int.MaxValue, ErrorMessage = "Não foi possível identificar a Pessoa")]
+        [Required(ErrorMessage = "Campo Comentário é obrigatório.")]
+        public int PessoaIdPessoa { get; set; }
+
         [Required(ErrorMessage = "Campo Requerido")]
         [StringLength(45, MinimumLength =5, ErrorMessage = "Título de tarefa obrigatorio")]
         public string Nome { get; set; }

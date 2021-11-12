@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using CondoTechWEB.Models;
 using System.Collections.Generic;
 using Core.Service;
+using System;
 
 namespace CondoTechWEB.Controllers
 {
@@ -18,19 +19,20 @@ namespace CondoTechWEB.Controllers
             _mapper = mapper;
         }
 
-     public ActionResult Index()
+    //comentei para testes dia 09/11/2021
+     /*public ActionResult Index()
         {
             var listaCondominio = _condominioService.ObterTodos();
-            var listaCondominiosModel = _mapper.Map<List<CondominioModel>(listaCondominio)>;
+            var listaCondominiosModel = _mapper.Map<List<CondominioModel>(listaCondominio);
             return View(CondominioModel);
 
-        }
-     public ActionResult Details(int id)
-        {
-            Condominio condominio = _condominioService.BuscarCondominio(id);
-            CondominioModel condominioModel = _mapper.Map < CondominioModel(Condominio) >;
-            return View(condominioModel);
-        }
+        }*/
+    public ActionResult Details(int id)
+    {
+        Condominio condominio = _condominioService.BuscarCondominio(id);
+        CondominioModel condominioModel = _mapper.Map<CondominioModel>(condominio);
+        return View(condominioModel);
+    }
 
      public ActionResult Create()
         {
@@ -69,7 +71,7 @@ namespace CondoTechWEB.Controllers
 
         public ActionResult Delete(int id)
         {
-            Condominio condominio = _condominioService.AlterarCondominio(id);
+            Condominio condominio = _condominioService.BuscarCondominio(id);
             CondominioModel condominioModel = _mapper.Map<CondominioModel>(condominio);
             return View(condominioModel);
         }
