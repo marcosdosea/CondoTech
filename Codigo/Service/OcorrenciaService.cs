@@ -17,26 +17,26 @@ namespace Service
             _context = context;
         }
 
-        public void Alterar(Ocorrencias ocorrencia)
+        public void Update(Ocorrencias ocorrencia)
         {
             _context.Update(ocorrencia);
             _context.SaveChanges();
         }
 
-        public Ocorrencias Buscar(int IdOcorrencias)
+        public Ocorrencias Get(int IdOcorrencias)
         {
             var _ocorrencia = _context.Ocorrencias.Find(IdOcorrencias);
             return _ocorrencia;
         }
 
-        public int Inserir(Ocorrencias ocorrencia)
+        public int Insert(Ocorrencias ocorrencia)
         {
             _context.Add(ocorrencia);
             _context.SaveChanges();
             return ocorrencia.IdOcorrencias;
         }
 
-        public void Remover(int IdOcorrencias)
+        public void Delete(int IdOcorrencias)
         {
             var _ocorrencia = _context.Ocorrencias.Find(IdOcorrencias);
             _context.Ocorrencias.Remove(_ocorrencia);

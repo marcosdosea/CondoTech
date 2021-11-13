@@ -18,25 +18,25 @@ namespace Services
         {
             _context = context;
         }
-        public void AlterarCondominio(Condominio cond)
+        public void Update(Condominio cond)
         {
             _context.Update(cond);
             _context.SaveChanges();
         }
 
-        public Condominio BuscarCondominio(int IdCondominio)
+        public Condominio Get(int IdCondominio)
         {
             return _context.Condominio.Find(IdCondominio);
         }
 
-        public int InserirCondominio(Condominio cond)
+        public int Insert(Condominio cond)
         {
             _context.Add(cond);
             _context.SaveChanges();
             return cond.IdCondominio;
         }
 
-        public void RemoverCondominio(int Id)
+        public void Delete(int Id)
         {
             var _auxiliar = _context.Condominio.Find(Id);
             _context.Condominio.Remove(_auxiliar);

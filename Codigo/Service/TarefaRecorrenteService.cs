@@ -17,19 +17,19 @@ namespace Service
         {
             _context = context;
         }
-        public void Alterar(Tarefarecorrente tarefa)
+        public void Update(Tarefarecorrente tarefa)
         {
             _context.Update(tarefa);
             _context.SaveChanges();
         }
 
-        public Tarefarecorrente Buscar(int IdTarefaRecorrente)
+        public Tarefarecorrente Get(int IdTarefaRecorrente)
         {
             var _tarefa = _context.Tarefarecorrente.Find(IdTarefaRecorrente);
             return _tarefa;
         }
 
-        public int Inserir(Tarefarecorrente tarefa)
+        public int Insert(Tarefarecorrente tarefa)
         {
 
             _context.Add(tarefa);
@@ -37,7 +37,7 @@ namespace Service
             return tarefa.IdTarefaRecorrente;
         }
 
-        public void Remover(int IdTarefaRecorrente)
+        public void Delete(int IdTarefaRecorrente)
         {
             var _tarefa = _context.Tarefarecorrente.Find(IdTarefaRecorrente);
             _context.Tarefarecorrente.Remove(_tarefa);

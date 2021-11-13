@@ -32,7 +32,7 @@ namespace CondoTechWEB.Controllers
 		// GET: AreacomumController/Details/5
 		public ActionResult Details(int id)
 		{
-			Areacomum areacomum = _areacomumService.Buscar(id);
+			Areacomum areacomum = _areacomumService.Get(id);
 			AreacomumModel areacomumModel = _mapper.Map<AreacomumModel>(areacomum);
 			return View(areacomumModel);
 		}
@@ -67,7 +67,7 @@ namespace CondoTechWEB.Controllers
 			if (ModelState.IsValid)
 			{
 				var areacomum = _mapper.Map<Areacomum>(areacomumModel);
-				_areacomumService.Inserir(areacomum);
+				_areacomumService.Insert(areacomum);
 			}
 			return RedirectToAction(nameof(Index));
 		}
@@ -75,7 +75,7 @@ namespace CondoTechWEB.Controllers
 		// GET: AreacomumController/Edit/5
 		public ActionResult Edit(int id)
 		{
-			Areacomum areacomum = _areacomumService.Buscar(id);
+			Areacomum areacomum = _areacomumService.Get(id);
 			AreacomumModel areacomumModel = _mapper.Map<AreacomumModel>(areacomum);
 			return View(areacomumModel);
 		}
@@ -88,7 +88,7 @@ namespace CondoTechWEB.Controllers
 			if (ModelState.IsValid)
 			{
 				var areacomum = _mapper.Map<Areacomum>(areacomumModel);
-				_areacomumService.Alterar(areacomum);
+				_areacomumService.Update(areacomum);
 			}
 			return RedirectToAction(nameof(Index));
 		}
@@ -96,7 +96,7 @@ namespace CondoTechWEB.Controllers
 		// GET: AreacomumController/Delete/5
 		public ActionResult Delete(int id)
 		{
-			Areacomum areacomum = _areacomumService.Buscar(id);
+			Areacomum areacomum = _areacomumService.Get(id);
 			AreacomumModel areacomumModel = _mapper.Map<AreacomumModel>(areacomum);
 			return View(areacomumModel);
 		}
@@ -106,7 +106,7 @@ namespace CondoTechWEB.Controllers
 		[ValidateAntiForgeryToken]
 		public ActionResult Delete(int id, AreacomumModel areacomumModel)
 		{
-			_areacomumService.Remover(id);
+			_areacomumService.Delete(id);
 			return RedirectToAction(nameof(Index));
 		}
 	}

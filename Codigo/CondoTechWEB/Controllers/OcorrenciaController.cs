@@ -30,7 +30,7 @@ namespace CondoTechWEB.Controllers
             if (ModelState.IsValid)
             {
                 var ocorrencia = _mapper.Map<Ocorrencias>(ocorrenciaModel);
-                _ocorrenciaService.Inserir(ocorrencia);
+                _ocorrenciaService.Insert(ocorrencia);
             }
             return RedirectToAction(nameof(Index));
         }
@@ -39,7 +39,7 @@ namespace CondoTechWEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, OcorrenciaModel ocorrenciaModel)
         {
-            _ocorrenciaService.Remover(id);
+            _ocorrenciaService.Delete(id);
             return RedirectToAction(nameof(Index));
         }
 

@@ -29,7 +29,7 @@ namespace CondoTechWEB.Controllers
         }*/
     public ActionResult Details(int id)
     {
-        Condominio condominio = _condominioService.BuscarCondominio(id);
+        Condominio condominio = _condominioService.Get(id);
         CondominioModel condominioModel = _mapper.Map<CondominioModel>(condominio);
         return View(condominioModel);
     }
@@ -48,7 +48,7 @@ namespace CondoTechWEB.Controllers
             if (ModelState.IsValid)
             {
                 var condominio = _mapper.Map<Condominio>(condominioModel);
-                _condominioService.InserirCondominio(condominio);
+                _condominioService.Insert(condominio);
             }
             return RedirectToAction(nameof(Index));
         }
@@ -61,7 +61,7 @@ namespace CondoTechWEB.Controllers
             if (ModelState.IsValid)
             {
                 var condominio = _mapper.Map<Condominio>(condominioModel);
-                _condominioService.AlterarCondominio(condominio);
+                _condominioService.Update(condominio);
             }
             return RedirectToAction(nameof(Index));
         }
@@ -71,7 +71,7 @@ namespace CondoTechWEB.Controllers
 
         public ActionResult Delete(int id)
         {
-            Condominio condominio = _condominioService.BuscarCondominio(id);
+            Condominio condominio = _condominioService.Get(id);
             CondominioModel condominioModel = _mapper.Map<CondominioModel>(condominio);
             return View(condominioModel);
         }
@@ -81,7 +81,7 @@ namespace CondoTechWEB.Controllers
 
         public ActionResult Delete(int id, CondominioModel condominioModel)
         {
-            _condominioService.RemoverCondominio(id);
+            _condominioService.Delete(id);
             return RedirectToAction(nameof(Index));
         }
 

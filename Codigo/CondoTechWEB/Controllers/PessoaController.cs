@@ -36,7 +36,7 @@ namespace CondoTechWEB.Controllers
         // GET: PessoaController/Details/5
         public ActionResult Details(int id)
         {
-            Pessoa pessoa = _pessoaService.Buscar(id);
+            Pessoa pessoa = _pessoaService.Get(id);
             PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
             return View(pessoaModel);
         }
@@ -54,7 +54,7 @@ namespace CondoTechWEB.Controllers
         public ActionResult Create(PessoaModel pessoaModel)
         {
             var pessoa = _mapper.Map<Pessoa>(pessoaModel);
-            _pessoaService.Inserir(pessoa);
+            _pessoaService.Insert(pessoa);
             return RedirectToAction(nameof(Index));
         }
 

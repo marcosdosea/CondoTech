@@ -15,7 +15,7 @@ namespace Service
         public AvisosService(CondoTechContext context) {
             _context = context;
         }
-        public void alterar(Avisos avisos)
+        public void Update(Avisos avisos)
         {
             _context.Update(avisos);
             _context.SaveChanges();
