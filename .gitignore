@@ -21,3 +21,5 @@ Codigo/CondoTechWEB/bin/
 *.targets
 
 Codigo/.vs/CondoTech/DesignTimeBuild/
+
+Codigo/CondoTechWEB/appsettings.json
