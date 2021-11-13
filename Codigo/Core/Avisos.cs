@@ -5,13 +5,13 @@ namespace Core
 {
     public partial class Avisos
     {
-        public int IdAvisos { get; set; }
+        public int IdAviso { get; set; }
         public string Descricao { get; set; }
-        public DateTime? Data { get; set; }
-        public int PessoaIdPessoa { get; set; }
-        public int CondominioIdCondominio { get; set; }
+        public DateTime Data { get; set; }
+        public int IdPessoa { get; set; }
+        public int IdCondominio { get; set; }
 
-        public virtual Condominio CondominioIdCondominioNavigation { get; set; }
-        public virtual Pessoa PessoaIdPessoaNavigation { get; set; }
+        public virtual Condominio IdCondominioNavigation { get; set; }
+        public virtual Pessoa IdPessoaNavigation { get; set; }
     }
 }

@@ -33,7 +33,7 @@ namespace Service
         {
             _context.Add(ocorrencia);
             _context.SaveChanges();
-            return ocorrencia.IdOcorrencias;
+            return ocorrencia.IdOcorrencia;
         }
 
         public void Delete(int IdOcorrencias)
