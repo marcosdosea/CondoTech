@@ -8,11 +8,11 @@ namespace Core.Service
 {
     public interface ICondominioService
     {
-        int InserirCondominio(Condominio cond);
+        int Insert(Condominio cond);
         void ValidarCondominio(Condominio cond);
-        Condominio BuscarCondominio(int IdCondominio);
-        void RemoverCondominio(int IdCondominio);
-        void AlterarCondominio(Condominio cond);
-        //Condominio AlterarCondominio(int id);
+        Condominio Get(int IdCondominio);
+        void Delete(int IdCondominio);
+        void Update(Condominio cond);
+        //Condominio Update(int id);
     }
 }

@@ -17,26 +17,26 @@ namespace Service
         {
             _context = context;
         }
-        public void Alterar(Pessoa pessoa)
+        public void Update(Pessoa pessoa)
         {
             _context.Update(pessoa);
             _context.SaveChanges();
         }
 
-        public Pessoa Buscar(int IdPessoa)
+        public Pessoa Get(int IdPessoa)
         {
             var _pessoa = _context.Pessoa.Find(IdPessoa);
             return _pessoa;
         }
 
-        public int Inserir(Pessoa pessoa)
+        public int Insert(Pessoa pessoa)
         {
             _context.Pessoa.Add(pessoa);
             _context.SaveChanges();
             return pessoa.IdPessoa;
         }
 
-        public void Remover(int IdPessoa)
+        public void Delete(int IdPessoa)
         {
             var _pessoa = _context.Pessoa.Find(IdPessoa);
             _context.Pessoa.Remove(_pessoa);

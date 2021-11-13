@@ -8,14 +8,14 @@ namespace Core.Service
 {
     public interface IOcorrenciaService
     {
-        int Inserir(Ocorrencias ocorrencia);
+        int Insert(Ocorrencias ocorrencia);
 
         void Validar(Ocorrencias ocorrencia);
 
-        void Alterar(Ocorrencias ocorrencia);
+        void Update(Ocorrencias ocorrencia);
 
-        Ocorrencias Buscar(int IdOcorrencias);
+        Ocorrencias Get(int IdOcorrencias);
 
-        void Remover(int IdOcorrencias);
+        void Delete(int IdOcorrencias);
     }
 }

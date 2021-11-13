@@ -9,13 +9,13 @@ namespace Core.Service
 {
     public interface IPessoaService
     {
-        void Alterar(Pessoa pessoa);
+        void Update(Pessoa pessoa);
 
-        int Inserir(Pessoa pessoa);
+        int Insert(Pessoa pessoa);
 
-        void Remover(int IdPessoa);
+        void Delete(int IdPessoa);
 
-        Pessoa Buscar(int IdPessoa);
+        Pessoa Get(int IdPessoa);
 
         bool Validar(Pessoa pessoa);
 

@@ -40,7 +40,7 @@ namespace CondoTechWEB.Controllers
         // GET: TarefaRecorrenteController/Details/5
         public ActionResult Details(int id)
         {
-            Tarefarecorrente tarefarecorrente = _tarefarecorrenteService.Buscar(id);
+            Tarefarecorrente tarefarecorrente = _tarefarecorrenteService.Get(id);
             TarefaRecorrenteModel tarefaRecorrenteModel = _mapper.Map<TarefaRecorrenteModel>(tarefarecorrente);
             return View(tarefaRecorrenteModel);
         }
@@ -59,12 +59,12 @@ namespace CondoTechWEB.Controllers
         public ActionResult Create(TarefaRecorrenteModel tarefaRecorrenteModel)
         {
             /*var tarefarecorrente = _mapper.Map<Tarefarecorrente>(tarefaRecorrenteModel);
-            _tarefarecorrenteService.Inserir(tarefarecorrente);
+            _tarefarecorrenteService.Insert(tarefarecorrente);
             return RedirectToAction(nameof(Index));*/
             if (ModelState.IsValid)
             {
                 var tarefarecorrente = _mapper.Map<Tarefarecorrente>(tarefaRecorrenteModel);
-                _tarefarecorrenteService.Inserir(tarefarecorrente);
+                _tarefarecorrenteService.Insert(tarefarecorrente);
             }
             return RedirectToAction(nameof(Index));
         }
@@ -75,7 +75,7 @@ namespace CondoTechWEB.Controllers
             IEnumerable<Pessoa> listapessoas = _pessoaService.GetAll();
             ViewBag.IdPessoa = new SelectList(listapessoas, "IdPessoa", "Nome", null);
 
-            Tarefarecorrente tarefarecorrente = _tarefarecorrenteService.Buscar(id);
+            Tarefarecorrente tarefarecorrente = _tarefarecorrenteService.Get(id);
             TarefaRecorrenteModel tarefaRecorrenteModel = _mapper.Map<TarefaRecorrenteModel>(tarefarecorrente);
 
             return View(tarefaRecorrenteModel);
@@ -91,7 +91,7 @@ namespace CondoTechWEB.Controllers
                 var tarefarecorrente = _mapper.Map<Tarefarecorrente>(tarefaRecorrenteModel);
 
                 tarefarecorrente.IdTarefaRecorrente = id;
-                _tarefarecorrenteService.Alterar(tarefarecorrente);
+                _tarefarecorrenteService.Update(tarefarecorrente);
 
             }
             return RedirectToAction(nameof(Index));
@@ -100,7 +100,7 @@ namespace CondoTechWEB.Controllers
         // GET: TarefaRecorrenteController/Delete/5
         public ActionResult Delete(int id)
         {
-            Tarefarecorrente tarefarecorrente = _tarefarecorrenteService.Buscar(id);
+            Tarefarecorrente tarefarecorrente = _tarefarecorrenteService.Get(id);
             TarefaRecorrenteModel tarefaRecorrenteModel = _mapper.Map<TarefaRecorrenteModel>(tarefarecorrente);
             return View(tarefaRecorrenteModel);
         }
@@ -110,7 +110,7 @@ namespace CondoTechWEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, TarefaRecorrenteModel tarefaRecorrenteModel)
         {
-            _tarefarecorrenteService.Remover(id);
+            _tarefarecorrenteService.Delete(id);
             return RedirectToAction(nameof(Index));
         }
     }

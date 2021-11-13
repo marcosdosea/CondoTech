@@ -24,7 +24,7 @@ namespace Service
         /// Editar area comum na base de dados
         /// </summary>
         /// <param name="areacomum">dados da area comum</param>
-        public void Alterar(Areacomum areacomum)
+        public void Update(Areacomum areacomum)
         {
             _context.Update(areacomum);
             _context.SaveChanges();
@@ -35,18 +35,18 @@ namespace Service
         /// </summary>
         /// <param name="idAreacomum">dados da area comum</param>
         /// <returns>retorna a area comum ou nulo quando não for encontrado</returns>
-        public Areacomum Buscar(int idAreacomum)
+        public Areacomum Get(int idAreacomum)
         {
             var _areacomum = _context.Areacomum.Find(idAreacomum);
             return _areacomum;
         }
 
         /// <summary>
-        /// Inserir area comum na base de dados
+        /// Insert area comum na base de dados
         /// </summary>
         /// <param name="areacomum">dados da area comum</param>
         /// <returns>retorna o IdAreaComum gerado</returns>
-        public int Inserir(Areacomum areacomum)
+        public int Insert(Areacomum areacomum)
         {
             _context.Add(areacomum);
             _context.SaveChanges();
@@ -58,7 +58,7 @@ namespace Service
         /// Remove uma area comum da base de dados
         /// </summary>
         /// <param name="IdAreaComum">a ser removido</param>
-        public void Remover(int IdAreaComum)
+        public void Delete(int IdAreaComum)
         {
             var remocaoArea = _context.Areacomum.Find(IdAreaComum);
             _context.Remove(remocaoArea);

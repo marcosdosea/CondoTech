@@ -18,94 +18,94 @@ namespace Core
         public virtual DbSet<Areacomum> Areacomum { get; set; }
         public virtual DbSet<Avisos> Avisos { get; set; }
         public virtual DbSet<Condominio> Condominio { get; set; }
-        public virtual DbSet<CondominioHasTarefarecorrente> CondominioHasTarefarecorrente { get; set; }
+        public virtual DbSet<Condomino> Condomino { get; set; }
+        public virtual DbSet<Disponibilidadearea> Disponibilidadearea { get; set; }
+        public virtual DbSet<Execucaotarefarecorrente> Execucaotarefarecorrente { get; set; }
         public virtual DbSet<Ocorrencias> Ocorrencias { get; set; }
         public virtual DbSet<Pessoa> Pessoa { get; set; }
-        public virtual DbSet<PessoaHasAreacomum> PessoaHasAreacomum { get; set; }
-        public virtual DbSet<PessoaHasCondominio> PessoaHasCondominio { get; set; }
+        public virtual DbSet<Reserva> Reserva { get; set; }
         public virtual DbSet<Tarefarecorrente> Tarefarecorrente { get; set; }
+        public virtual DbSet<Tipoocorrencia> Tipoocorrencia { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //if (!optionsBuilder.IsConfigured)
-            //{
+            if (!optionsBuilder.IsConfigured)
+            {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-  //              optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=123456;database=CondoTech");
-    //        }
+                optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=MasterOv;database=CondoTech");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Areacomum>(entity =>
             {
-                entity.HasKey(e => new { e.IdAreaComum, e.CondominioIdCondominio })
+                entity.HasKey(e => e.IdAreaComum)
                     .HasName("PRIMARY");
 
                 entity.ToTable("areacomum");
 
-                entity.HasIndex(e => e.CondominioIdCondominio)
+                entity.HasIndex(e => e.IdCondominio)
                     .HasName("fk_areaComum_condominio1_idx");
 
-                entity.Property(e => e.IdAreaComum).HasColumnName("id_areaComum");
-
-                entity.Property(e => e.CondominioIdCondominio).HasColumnName("condominio_id_condominio");
+                entity.Property(e => e.IdAreaComum).HasColumnName("idAreaComum");
 
                 entity.Property(e => e.Descricao)
                     .HasColumnName("descricao")
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.IdCondominio).HasColumnName("idCondominio");
+
+                entity.Property(e => e.Nome)
+                    .IsRequired()
+                    .HasColumnName("nome")
                     .HasMaxLength(45)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Dias)
-                    .HasColumnName("dias")
-                    .HasMaxLength(45)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Hora).HasColumnName("hora");
-
-                entity.HasOne(d => d.CondominioIdCondominioNavigation)
+                entity.HasOne(d => d.IdCondominioNavigation)
                     .WithMany(p => p.Areacomum)
-                    .HasForeignKey(d => d.CondominioIdCondominio)
+                    .HasForeignKey(d => d.IdCondominio)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_areaComum_condominio1");
             });
 
             modelBuilder.Entity<Avisos>(entity =>
             {
-                entity.HasKey(e => new { e.IdAvisos, e.PessoaIdPessoa, e.CondominioIdCondominio })
+                entity.HasKey(e => new { e.IdAviso, e.IdPessoa, e.IdCondominio })
                     .HasName("PRIMARY");
 
                 entity.ToTable("avisos");
 
-                entity.HasIndex(e => e.CondominioIdCondominio)
+                entity.HasIndex(e => e.IdCondominio)
                     .HasName("fk_avisos_condominio1_idx");
 
-                entity.HasIndex(e => e.PessoaIdPessoa)
+                entity.HasIndex(e => e.IdPessoa)
                     .HasName("fk_avisos_pessoa1_idx");
 
-                entity.Property(e => e.IdAvisos).HasColumnName("id_avisos");
+                entity.Property(e => e.IdAviso).HasColumnName("idAviso");
 
-                entity.Property(e => e.PessoaIdPessoa).HasColumnName("pessoa_id_pessoa");
+                entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
 
-                entity.Property(e => e.CondominioIdCondominio).HasColumnName("condominio_id_condominio");
+                entity.Property(e => e.IdCondominio).HasColumnName("idCondominio");
 
-                entity.Property(e => e.Data)
-                    .HasColumnName("data")
-                    .HasColumnType("date");
+                entity.Property(e => e.Data).HasColumnName("data");
 
                 entity.Property(e => e.Descricao)
+                    .IsRequired()
                     .HasColumnName("descricao")
-                    .HasMaxLength(45)
+                    .HasMaxLength(1000)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.CondominioIdCondominioNavigation)
+                entity.HasOne(d => d.IdCondominioNavigation)
                     .WithMany(p => p.Avisos)
-                    .HasForeignKey(d => d.CondominioIdCondominio)
+                    .HasForeignKey(d => d.IdCondominio)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_avisos_condominio1");
 
-                entity.HasOne(d => d.PessoaIdPessoaNavigation)
+                entity.HasOne(d => d.IdPessoaNavigation)
                     .WithMany(p => p.Avisos)
-                    .HasForeignKey(d => d.PessoaIdPessoa)
+                    .HasForeignKey(d => d.IdPessoa)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_avisos_pessoa1");
             });
@@ -117,7 +117,7 @@ namespace Core
 
                 entity.ToTable("condominio");
 
-                entity.Property(e => e.IdCondominio).HasColumnName("id_condominio");
+                entity.Property(e => e.IdCondominio).HasColumnName("idCondominio");
 
                 entity.Property(e => e.Bairro)
                     .HasColumnName("bairro")
@@ -157,76 +157,160 @@ namespace Core
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<CondominioHasTarefarecorrente>(entity =>
+            modelBuilder.Entity<Condomino>(entity =>
             {
-                entity.HasKey(e => new { e.CondominioIdCondominio, e.TarefaRecorrenteIdTarefaRecorrente })
+                entity.HasKey(e => new { e.IdPessoa, e.IdCondominio })
                     .HasName("PRIMARY");
 
-                entity.ToTable("condominio_has_tarefarecorrente");
+                entity.ToTable("condomino");
 
-                entity.HasIndex(e => e.CondominioIdCondominio)
+                entity.HasIndex(e => e.IdCondominio)
+                    .HasName("fk_pessoa_has_condominio_condominio1_idx");
+
+                entity.HasIndex(e => e.IdPessoa)
+                    .HasName("fk_pessoa_has_condominio_pessoa1_idx");
+
+                entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
+
+                entity.Property(e => e.IdCondominio).HasColumnName("idCondominio");
+
+                entity.HasOne(d => d.IdCondominioNavigation)
+                    .WithMany(p => p.Condomino)
+                    .HasForeignKey(d => d.IdCondominio)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_pessoa_has_condominio_condominio1");
+
+                entity.HasOne(d => d.IdPessoaNavigation)
+                    .WithMany(p => p.Condomino)
+                    .HasForeignKey(d => d.IdPessoa)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_pessoa_has_condominio_pessoa1");
+            });
+
+            modelBuilder.Entity<Disponibilidadearea>(entity =>
+            {
+                entity.HasKey(e => e.IdDisponibilidadeArea)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("disponibilidadearea");
+
+                entity.HasIndex(e => e.IdAreaComum)
+                    .HasName("fk_DisponibilidadeArea_areaComum1_idx");
+
+                entity.Property(e => e.IdDisponibilidadeArea).HasColumnName("idDisponibilidadeArea");
+
+                entity.Property(e => e.DiaSemana)
+                    .IsRequired()
+                    .HasColumnName("diaSemana")
+                    .HasColumnType("enum('SEGUNDA','TERCA','QUARTA','QUINTA','SEXTA','SABADO','DOMINGO')");
+
+                entity.Property(e => e.HoraFim).HasColumnName("horaFim");
+
+                entity.Property(e => e.HoraInicio).HasColumnName("horaInicio");
+
+                entity.Property(e => e.IdAreaComum).HasColumnName("idAreaComum");
+
+                entity.Property(e => e.Vagas)
+                    .HasColumnName("vagas")
+                    .HasDefaultValueSql("'1'");
+
+                entity.HasOne(d => d.IdAreaComumNavigation)
+                    .WithMany(p => p.Disponibilidadearea)
+                    .HasForeignKey(d => d.IdAreaComum)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_DisponibilidadeArea_areaComum1");
+            });
+
+            modelBuilder.Entity<Execucaotarefarecorrente>(entity =>
+            {
+                entity.HasKey(e => new { e.IdCondominio, e.IdTarefaRecorrente })
+                    .HasName("PRIMARY");
+
+                entity.ToTable("execucaotarefarecorrente");
+
+                entity.HasIndex(e => e.IdCondominio)
                     .HasName("fk_condominio_has_tarefaRecorrente_condominio1_idx");
 
-                entity.HasIndex(e => e.TarefaRecorrenteIdTarefaRecorrente)
+                entity.HasIndex(e => e.IdPessoa)
+                    .HasName("fk_ExecucaoTarefaRecorrente_pessoa1_idx");
+
+                entity.HasIndex(e => e.IdTarefaRecorrente)
                     .HasName("fk_condominio_has_tarefaRecorrente_tarefaRecorrente1_idx");
 
-                entity.Property(e => e.CondominioIdCondominio).HasColumnName("condominio_id_condominio");
+                entity.Property(e => e.IdCondominio).HasColumnName("idCondominio");
 
-                entity.Property(e => e.TarefaRecorrenteIdTarefaRecorrente).HasColumnName("tarefaRecorrente_id_tarefaRecorrente");
+                entity.Property(e => e.IdTarefaRecorrente).HasColumnName("idTarefaRecorrente");
 
-                entity.HasOne(d => d.CondominioIdCondominioNavigation)
-                    .WithMany(p => p.CondominioHasTarefarecorrente)
-                    .HasForeignKey(d => d.CondominioIdCondominio)
+                entity.Property(e => e.DataExecucao).HasColumnName("dataExecucao");
+
+                entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
+
+                entity.HasOne(d => d.IdCondominioNavigation)
+                    .WithMany(p => p.Execucaotarefarecorrente)
+                    .HasForeignKey(d => d.IdCondominio)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_condominio_has_tarefaRecorrente_condominio1");
 
-                entity.HasOne(d => d.TarefaRecorrenteIdTarefaRecorrenteNavigation)
-                    .WithMany(p => p.CondominioHasTarefarecorrente)
-                    .HasForeignKey(d => d.TarefaRecorrenteIdTarefaRecorrente)
+                entity.HasOne(d => d.IdPessoaNavigation)
+                    .WithMany(p => p.Execucaotarefarecorrente)
+                    .HasForeignKey(d => d.IdPessoa)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_ExecucaoTarefaRecorrente_pessoa1");
+
+                entity.HasOne(d => d.IdTarefaRecorrenteNavigation)
+                    .WithMany(p => p.Execucaotarefarecorrente)
+                    .HasForeignKey(d => d.IdTarefaRecorrente)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_condominio_has_tarefaRecorrente_tarefaRecorrente1");
             });
 
             modelBuilder.Entity<Ocorrencias>(entity =>
             {
-                entity.HasKey(e => e.IdOcorrencias)
+                entity.HasKey(e => e.IdOcorrencia)
                     .HasName("PRIMARY");
 
                 entity.ToTable("ocorrencias");
 
-                entity.HasIndex(e => e.CondominioIdCondominio)
+                entity.HasIndex(e => e.IdCondominio)
                     .HasName("fk_ocorrencias_condominio1_idx");
 
-                entity.HasIndex(e => e.PessoaIdPessoa)
+                entity.HasIndex(e => e.IdPessoa)
                     .HasName("fk_ocorrencias_pessoa_idx");
 
-                entity.Property(e => e.IdOcorrencias).HasColumnName("id_ocorrencias");
+                entity.HasIndex(e => e.IdTipoOcorrencia)
+                    .HasName("fk_ocorrencias_tipoOcorrencia1_idx");
 
-                entity.Property(e => e.CondominioIdCondominio).HasColumnName("condominio_id_condominio");
+                entity.Property(e => e.IdOcorrencia).HasColumnName("idOcorrencia");
 
                 entity.Property(e => e.Descricao)
+                    .IsRequired()
                     .HasColumnName("descricao")
-                    .HasMaxLength(45)
+                    .HasMaxLength(500)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PessoaIdPessoa).HasColumnName("pessoa_id_pessoa");
+                entity.Property(e => e.IdCondominio).HasColumnName("idCondominio");
 
-                entity.Property(e => e.Tipo)
-                    .HasColumnName("tipo")
-                    .HasMaxLength(45)
-                    .IsUnicode(false);
+                entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
 
-                entity.HasOne(d => d.CondominioIdCondominioNavigation)
+                entity.Property(e => e.IdTipoOcorrencia).HasColumnName("idTipoOcorrencia");
+
+                entity.HasOne(d => d.IdCondominioNavigation)
                     .WithMany(p => p.Ocorrencias)
-                    .HasForeignKey(d => d.CondominioIdCondominio)
+                    .HasForeignKey(d => d.IdCondominio)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_ocorrencias_condominio1");
 
-                entity.HasOne(d => d.PessoaIdPessoaNavigation)
+                entity.HasOne(d => d.IdPessoaNavigation)
                     .WithMany(p => p.Ocorrencias)
-                    .HasForeignKey(d => d.PessoaIdPessoa)
+                    .HasForeignKey(d => d.IdPessoa)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_ocorrencias_pessoa");
+
+                entity.HasOne(d => d.IdTipoOcorrenciaNavigation)
+                    .WithMany(p => p.Ocorrencias)
+                    .HasForeignKey(d => d.IdTipoOcorrencia)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_ocorrencias_tipoOcorrencia1");
             });
 
             modelBuilder.Entity<Pessoa>(entity =>
@@ -236,86 +320,90 @@ namespace Core
 
                 entity.ToTable("pessoa");
 
-                entity.Property(e => e.IdPessoa).HasColumnName("id_pessoa");
+                entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
 
                 entity.Property(e => e.Cpf)
+                    .IsRequired()
                     .HasColumnName("cpf")
                     .HasMaxLength(15)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Email)
+                    .IsRequired()
                     .HasColumnName("email")
                     .HasMaxLength(45)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
+                    .IsRequired()
                     .HasColumnName("nome")
                     .HasMaxLength(45)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Senha)
+                    .IsRequired()
                     .HasColumnName("senha")
                     .HasMaxLength(45)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Status)
+                    .IsRequired()
+                    .HasColumnName("status")
+                    .HasColumnType("enum('ATIVO','BLOQUEADO','EXCLUIDO')")
+                    .HasDefaultValueSql("'BLOQUEADO'");
+
                 entity.Property(e => e.Telefone)
+                    .IsRequired()
                     .HasColumnName("telefone")
                     .HasMaxLength(14)
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<PessoaHasAreacomum>(entity =>
+            modelBuilder.Entity<Reserva>(entity =>
             {
-                entity.HasKey(e => new { e.PessoaIdPessoa, e.AreaComumIdAreaComum })
+                entity.HasKey(e => new { e.IdPessoa, e.IdAreaComum })
                     .HasName("PRIMARY");
 
-                entity.ToTable("pessoa_has_areacomum");
+                entity.ToTable("reserva");
 
-                entity.HasIndex(e => e.AreaComumIdAreaComum)
+                entity.HasIndex(e => e.IdAreaComum)
                     .HasName("fk_pessoa_has_areaComum_areaComum1_idx");
 
-                entity.HasIndex(e => e.PessoaIdPessoa)
+                entity.HasIndex(e => e.IdDisponibilidadeArea)
+                    .HasName("fk_Reserva_DisponibilidadeArea1_idx");
+
+                entity.HasIndex(e => e.IdPessoa)
                     .HasName("fk_pessoa_has_areaComum_pessoa1_idx");
 
-                entity.Property(e => e.PessoaIdPessoa).HasColumnName("pessoa_id_pessoa");
+                entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
 
-                entity.Property(e => e.AreaComumIdAreaComum).HasColumnName("areaComum_id_areaComum");
+                entity.Property(e => e.IdAreaComum).HasColumnName("idAreaComum");
 
-                entity.HasOne(d => d.PessoaIdPessoaNavigation)
-                    .WithMany(p => p.PessoaHasAreacomum)
-                    .HasForeignKey(d => d.PessoaIdPessoa)
+                entity.Property(e => e.Data).HasColumnName("data");
+
+                entity.Property(e => e.IdDisponibilidadeArea).HasColumnName("idDisponibilidadeArea");
+
+                entity.Property(e => e.VagasReservadas)
+                    .HasColumnName("vagasReservadas")
+                    .HasDefaultValueSql("'1'");
+
+                entity.HasOne(d => d.IdAreaComumNavigation)
+                    .WithMany(p => p.Reserva)
+                    .HasForeignKey(d => d.IdAreaComum)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_pessoa_has_areaComum_areaComum1");
+
+                entity.HasOne(d => d.IdDisponibilidadeAreaNavigation)
+                    .WithMany(p => p.Reserva)
+                    .HasForeignKey(d => d.IdDisponibilidadeArea)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_Reserva_DisponibilidadeArea1");
+
+                entity.HasOne(d => d.IdPessoaNavigation)
+                    .WithMany(p => p.Reserva)
+                    .HasForeignKey(d => d.IdPessoa)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_pessoa_has_areaComum_pessoa1");
-            });
-
-            modelBuilder.Entity<PessoaHasCondominio>(entity =>
-            {
-                entity.HasKey(e => new { e.PessoaIdPessoa, e.CondominioIdCondominio })
-                    .HasName("PRIMARY");
-
-                entity.ToTable("pessoa_has_condominio");
-
-                entity.HasIndex(e => e.CondominioIdCondominio)
-                    .HasName("fk_pessoa_has_condominio_condominio1_idx");
-
-                entity.HasIndex(e => e.PessoaIdPessoa)
-                    .HasName("fk_pessoa_has_condominio_pessoa1_idx");
-
-                entity.Property(e => e.PessoaIdPessoa).HasColumnName("pessoa_id_pessoa");
-
-                entity.Property(e => e.CondominioIdCondominio).HasColumnName("condominio_id_condominio");
-
-                entity.HasOne(d => d.CondominioIdCondominioNavigation)
-                    .WithMany(p => p.PessoaHasCondominio)
-                    .HasForeignKey(d => d.CondominioIdCondominio)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_pessoa_has_condominio_condominio1");
-
-                entity.HasOne(d => d.PessoaIdPessoaNavigation)
-                    .WithMany(p => p.PessoaHasCondominio)
-                    .HasForeignKey(d => d.PessoaIdPessoa)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_pessoa_has_condominio_pessoa1");
             });
 
             modelBuilder.Entity<Tarefarecorrente>(entity =>
@@ -325,34 +413,35 @@ namespace Core
 
                 entity.ToTable("tarefarecorrente");
 
-                entity.HasIndex(e => e.PessoaIdPessoa)
-                    .HasName("fk_tarefaRecorrente_pessoa1_idx");
-
-                entity.Property(e => e.IdTarefaRecorrente).HasColumnName("id_tarefaRecorrente");
-
-                entity.Property(e => e.Data)
-                    .HasColumnName("data")
-                    .HasColumnType("date");
+                entity.Property(e => e.IdTarefaRecorrente).HasColumnName("idTarefaRecorrente");
 
                 entity.Property(e => e.Descricao)
                     .HasColumnName("descricao")
                     .HasMaxLength(45)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Frequencia).HasColumnName("frequencia");
-
                 entity.Property(e => e.Nome)
                     .HasColumnName("nome")
                     .HasMaxLength(45)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PessoaIdPessoa).HasColumnName("pessoa_id_pessoa");
+                entity.Property(e => e.RepeticaoDias).HasColumnName("repeticaoDias");
+            });
 
-                entity.HasOne(d => d.PessoaIdPessoaNavigation)
-                    .WithMany(p => p.Tarefarecorrente)
-                    .HasForeignKey(d => d.PessoaIdPessoa)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_tarefaRecorrente_pessoa1");
+            modelBuilder.Entity<Tipoocorrencia>(entity =>
+            {
+                entity.HasKey(e => e.IdTipoOcorrencia)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("tipoocorrencia");
+
+                entity.Property(e => e.IdTipoOcorrencia).HasColumnName("idTipoOcorrencia");
+
+                entity.Property(e => e.Descricao)
+                    .IsRequired()
+                    .HasColumnName("descricao")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);

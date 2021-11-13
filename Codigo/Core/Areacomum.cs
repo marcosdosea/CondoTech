@@ -5,12 +5,19 @@ namespace Core
 {
     public partial class Areacomum
     {
-        public int IdAreaComum { get; set; }
-        public string Descricao { get; set; }
-        public TimeSpan? Hora { get; set; }
-        public string Dias { get; set; }
-        public int CondominioIdCondominio { get; set; }
+        public Areacomum()
+        {
+            Disponibilidadearea = new HashSet<Disponibilidadearea>();
+            Reserva = new HashSet<Reserva>();
+        }
 
-        public virtual Condominio CondominioIdCondominioNavigation { get; set; }
+        public int IdAreaComum { get; set; }
+        public int IdCondominio { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+
+        public virtual Condominio IdCondominioNavigation { get; set; }
+        public virtual ICollection<Disponibilidadearea> Disponibilidadearea { get; set; }
+        public virtual ICollection<Reserva> Reserva { get; set; }
     }
 }

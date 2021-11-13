@@ -9,13 +9,13 @@ namespace Core.Service
 {
     public interface ITarefaRecorrenteService
     {
-        void Alterar(Tarefarecorrente tarefa);
+        void Update(Tarefarecorrente tarefa);
 
-        int Inserir(Tarefarecorrente tarefa);
+        int Insert(Tarefarecorrente tarefa);
 
-        void Remover(int IdTarefaRecorrente);
+        void Delete(int IdTarefaRecorrente);
 
-        Tarefarecorrente Buscar(int IdTarefaRecorrente);
+        Tarefarecorrente Get(int IdTarefaRecorrente);
 
         bool Validar(Tarefarecorrente tarefa);
 

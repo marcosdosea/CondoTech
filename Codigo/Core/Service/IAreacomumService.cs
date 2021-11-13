@@ -8,13 +8,13 @@ namespace Core.Service
 {
     public interface IAreacomumService
     {
-        int Inserir(Areacomum areacomum);
+        int Insert(Areacomum areacomum);
 
-        void Alterar(Areacomum areacomum);
+        void Update(Areacomum areacomum);
 
-        Areacomum Buscar(int idAreacomum);
+        Areacomum Get(int idAreacomum);
 
-        void Remover(int idAreacomum);
+        void Delete(int idAreacomum);
 
         bool Validar(Areacomum areacomum);
 
