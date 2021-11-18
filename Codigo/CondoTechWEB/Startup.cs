@@ -42,6 +42,7 @@ namespace CondoTechWEB
             services.AddTransient<IOcorrenciaService, OcorrenciaService>();
             services.AddTransient<ITarefaRecorrenteService, TarefaRecorrenteService>();
             services.AddTransient<IPessoaService, PessoaService>();
+            services.AddTransient<IDisponibilidadeareaService, DisponibilidadeareaService>();
 
 
             //Injeção de dependência Mapper
