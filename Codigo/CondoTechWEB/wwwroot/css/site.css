@@ -12,6 +12,12 @@ a {
   color: #0366d6;
 }
 
+
+
+th, td {
+  color: white;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
@@ -61,6 +67,8 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-color: #2c302e;
+  color: white;
 }
 .footer {
   position: absolute;
