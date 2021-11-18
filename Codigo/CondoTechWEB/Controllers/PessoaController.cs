@@ -41,14 +41,13 @@ namespace CondoTechWEB.Controllers
             return View(pessoaModel);
         }
 
-        // GET: TarefaRecorrenteController/Create
+        // GET: PessoaController/Create
         public ActionResult Create()
         {
-
             return View();
         }
 
-        // POST: TarefaRecorrenteController/Create
+        // POST: PessoaController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PessoaModel pessoaModel)
@@ -58,46 +57,42 @@ namespace CondoTechWEB.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: TarefaRecorrenteController/Edit/5
+        // GET: PessoaController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Pessoa pessoa = _pessoaService.Get(id);
+            PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
+            return View(pessoaModel);
         }
 
-        // POST: TarefaRecorrenteController/Edit/5
+        // POST: PessoaController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, PessoaModel pessoaModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                var pessoa = _mapper.Map<Pessoa>(pessoaModel);
+                _pessoaService.Update(pessoa);
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
 
-        // GET: TarefaRecorrenteController/Delete/5
+        // GET: PessoaController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Pessoa pessoa = _pessoaService.Get(id);
+            PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
+            return View (pessoaModel);
         }
 
-        // POST: TarefaRecorrenteController/Delete/5
+        // POST: PessoaController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _pessoaService.Delete(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
