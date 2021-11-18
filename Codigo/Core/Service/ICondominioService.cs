@@ -13,6 +13,9 @@ namespace Core.Service
         Condominio Get(int IdCondominio);
         void Delete(int IdCondominio);
         void Update(Condominio cond);
-        //Condominio Update(int id);
+        public IEnumerable<Condominio> GetByName(string nome);
+        public IEnumerable<Condominio> GetAll();
+
+        public IQueryable<Condominio> GetQuery();
     }
 }

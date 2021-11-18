@@ -18,6 +18,7 @@ namespace Services
         {
             _context = context;
         }
+
         public void Update(Condominio cond)
         {
             _context.Update(cond);
@@ -46,6 +47,24 @@ namespace Services
         public void ValidarCondominio(Condominio cond)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Condominio> GetByName(string nome)
+        {
+            var query = from Condominio in _context.Condominio
+                        where Condominio.Nome.Contains(nome)
+                        select Condominio;
+            return query;
+        }
+        public IEnumerable<Condominio> GetAll()
+        {
+            return GetQuery();
+        }
+        public IQueryable<Condominio> GetQuery()
+        {
+            var query = from Condominio in _context.Condominio
+                        select Condominio;
+            return query;
         }
     }
 
