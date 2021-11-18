@@ -5,6 +5,7 @@ using Core.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,18 +16,22 @@ namespace CondoTechWEB.Controllers
     public class AreacomumController : Controller
     {
 		private readonly IAreacomumService _areacomumService;
+		private readonly ICondominioService _condominioService;
 		private readonly IMapper _mapper;
 
-		public AreacomumController(IAreacomumService areacomumService, IMapper mapper)
+		public AreacomumController(IAreacomumService areacomumService, ICondominioService condominioService, IMapper mapper)
 		{
 			_areacomumService = areacomumService;
+			_condominioService = condominioService;
 			_mapper = mapper;
 		}
 
 
 		public ActionResult Index()
         {
-			return View();
+			var listarAreasComuns = _areacomumService.GetAll();
+			var listarAreasComunsModel = _mapper.Map<List<AreacomumModel>>(listarAreasComuns);
+			return View(listarAreasComunsModel);
         }
 
 		// GET: AreacomumController/Details/5
@@ -38,10 +43,10 @@ namespace CondoTechWEB.Controllers
 		}
 
 		// GET: AreacomumController/Create
-		[Authorize]
 		public ActionResult Create()
 		{
-
+			IEnumerable<Condominio> listacondominios = _condominioService.GetAll();
+			ViewBag.IdCondominio = new SelectList(listacondominios, "IdCondominio", "Nome", null);
 			return View();
 		}
 
@@ -51,27 +56,15 @@ namespace CondoTechWEB.Controllers
 
 
 
-		public ActionResult Create(IFormCollection collection)
+		public ActionResult Create(AreacomumModel areacomumModel)
 		{
-			try
-			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
-		/*public ActionResult Create(AreacomumModel areacomumModel)
-		{
-			if (ModelState.IsValid)
-			{
-				var areacomum = _mapper.Map<Areacomum>(areacomumModel);
-				_areacomumService.Insert(areacomum);
-			}
+			
+			var areacomum = _mapper.Map<Areacomum>(areacomumModel);
+			_areacomumService.Insert(areacomum);
+			
 			return RedirectToAction(nameof(Index));
 		}
-		*/
+
 		// GET: AreacomumController/Edit/5
 		public ActionResult Edit(int id)
 		{

@@ -18,9 +18,8 @@ namespace Core.Service
 
         bool Validar(Areacomum areacomum);
 
-        //IEnumerable<Areacomum> ObterPorNome(string nome);
-        //IEnumerable<Areacomum> ObterTodos();
-
-        //IEnumerable<Areacomum> ObterPorNomeOrdenadoDescendign(string nome);
+        IEnumerable<Areacomum> GetByName(string nome);
+        IEnumerable<Areacomum> GetAll();
+        IQueryable<Areacomum> GetQuery();
     }
 }

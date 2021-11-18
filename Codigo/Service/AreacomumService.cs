@@ -60,9 +60,41 @@ namespace Service
         /// <param name="IdAreaComum">a ser removido</param>
         public void Delete(int IdAreaComum)
         {
-            var remocaoArea = _context.Areacomum.Find(IdAreaComum);
-            _context.Remove(remocaoArea);
+            var _area = _context.Areacomum.Find(IdAreaComum);
+            _context.Remove(_area);
             _context.SaveChanges();
+        }
+
+        /// <summary>
+        /// Busca todas as areas comuns cadastradas
+        /// </summary>
+        /// <returns>irá retornar outro metodo, que será uma pesquisa generalista</returns>
+        public IEnumerable<Areacomum>GetAll()
+        {
+            return GetQuery();
+        }
+
+        /// <summary>
+        /// apenas faz uma busca generica
+        /// </summary>
+        /// <returns>irá retornar o resultado da busca</returns>
+        public IQueryable<Areacomum>GetQuery()
+        {
+            var query = from Areacomum in _context.Areacomum
+                        select Areacomum;
+            return query;
+        }
+        /// <summary>
+        /// Procura por todas as areas comuns com o nome informado
+        /// </summary>
+        /// <param name="nome">a ser procurado</param>
+        /// <returns>retorna as areas comuns que contém o parametro nome</returns>
+        public IEnumerable<Areacomum>GetByName(string nome)
+        {
+            var query = from Areacomum in _context.Areacomum
+                        where Areacomum.Nome.Contains(nome)
+                        select Areacomum;
+            return query;
         }
 
         /// <summary>
@@ -70,8 +102,6 @@ namespace Service
         /// </summary>
         /// <param name="areacomum">a ser validado</param>
         /// <returns>retorna true caso seja validado ou false caso nao seja</returns>
-
-
         //apenas para ter algo implementado
         public bool Validar(Areacomum areacomum)
         {
