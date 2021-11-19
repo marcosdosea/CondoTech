@@ -4,10 +4,10 @@ using CondoTechWEB.Models;
 
 namespace Mappers
 {
-    public class AvisosProfile : Profile
+    public class AvisoProfile : Profile
     {
-        public AvisosProfile() {
-            CreateMap<AvisosModel, Avisos>().ReverseMap();
+        public AvisoProfile() {
+            CreateMap<AvisoModel, Aviso>().ReverseMap();
         }
     }
 }

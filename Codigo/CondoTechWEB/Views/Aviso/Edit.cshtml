@@ -1,0 +1,53 @@
+﻿@model CondoTechWEB.Models.AvisoModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AvisoModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="idAviso" class="control-label"></label>
+                <input asp-for="idAviso" class="form-control" />
+                <span asp-validation-for="idAviso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descricao" class="control-label"></label>
+                <input asp-for="descricao" class="form-control" />
+                <span asp-validation-for="descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idPessoa" class="control-label"></label>
+                <input asp-for="idPessoa" class="form-control" />
+                <span asp-validation-for="idPessoa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idCondominio" class="control-label"></label>
+                <input asp-for="idCondominio" class="form-control" />
+                <span asp-validation-for="idCondominio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="data" class="control-label"></label>
+                <input asp-for="data" class="form-control" />
+                <span asp-validation-for="data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
