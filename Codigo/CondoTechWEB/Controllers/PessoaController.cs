@@ -82,14 +82,14 @@ namespace CondoTechWEB.Controllers
         public ActionResult Delete(int id)
         {
             Pessoa pessoa = _pessoaService.Get(id);
-            PessoaModel pessoaModel = _mapper.Map<PessoaModel>(pessoa);
-            return View (pessoaModel);
+            PessoaModel pessoaModel1 = _mapper.Map<PessoaModel>(pessoa);
+            return View (pessoaModel1);
         }
 
         // POST: PessoaController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, PessoaModel pessoaModel)
         {
             _pessoaService.Delete(id);
             return RedirectToAction(nameof(Index));
