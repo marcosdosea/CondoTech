@@ -18,16 +18,17 @@ namespace CondoTechWEB.Controllers
 		private readonly IAreacomumService _areacomumService;
 		private readonly ICondominioService _condominioService;
 		private readonly IMapper _mapper;
+      
 
-		public AreacomumController(IAreacomumService areacomumService, ICondominioService condominioService, IMapper mapper)
+        public AreacomumController(IAreacomumService areacomumService, IMapper mapper)
 		{
 			_areacomumService = areacomumService;
-			_condominioService = condominioService;
+			//_condominioService = condominioService;
 			_mapper = mapper;
 		}
 
 
-		public ActionResult Index()
+        public ActionResult Index()
         {
 			var listarAreasComuns = _areacomumService.GetAll();
 			var listarAreasComunsModel = _mapper.Map<List<AreacomumModel>>(listarAreasComuns);
