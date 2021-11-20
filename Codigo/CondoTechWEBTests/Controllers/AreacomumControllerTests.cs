@@ -93,7 +93,7 @@ namespace CondoTechWEB.Controllers.Tests
             // Assert
             Assert.IsInstanceOfType(result, typeof(ViewResult));
             ViewResult viewResult = (ViewResult)result;
-            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(List<Areacomum>));
+            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(List<AreacomumModel>));
             List<AreacomumModel> listaAreacomum = (List<AreacomumModel>)viewResult.ViewData.Model;
             Assert.AreEqual(3, listaAreacomum.Count);
         }
@@ -107,7 +107,7 @@ namespace CondoTechWEB.Controllers.Tests
             // Assert
             Assert.IsInstanceOfType(result, typeof(ViewResult));
             ViewResult viewResult = (ViewResult)result;
-            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(Areacomum));
+            Assert.IsInstanceOfType(viewResult.ViewData.Model, typeof(AreacomumModel));
             AreacomumModel areacomumModel = (AreacomumModel)viewResult.ViewData.Model;
             Assert.AreEqual("Quadra de volei", areacomumModel.Nome);
         }
