@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CondoTechWEB.Models.AvisoModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idAviso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idPessoa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idCondominio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idAviso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idPessoa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idCondominio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.idAviso }) |
+                @Html.ActionLink("Details", "Details", new { id=item.idAviso }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.idAviso })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

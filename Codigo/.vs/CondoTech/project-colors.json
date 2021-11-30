@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "77d7d763-59b6-4ddd-85da-b02800d64028": {
+      "ProjectGuid": "77d7d763-59b6-4ddd-85da-b02800d64028",
+      "DisplayName": "CondoTechWEB",
+      "ColorIndex": 0
+    },
+    "3255cc91-0cff-4e7b-b88d-140f5722d0e1": {
+      "ProjectGuid": "3255cc91-0cff-4e7b-b88d-140f5722d0e1",
+      "DisplayName": "Core",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Arquivos Diversos",
+      "ColorIndex": -1
+    },
+    "94465679-7788-4c09-8dae-c388a8a6d955": {
+      "ProjectGuid": "94465679-7788-4c09-8dae-c388a8a6d955",
+      "DisplayName": "Service",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

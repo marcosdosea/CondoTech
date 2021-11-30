@@ -30,7 +30,7 @@ namespace CondoTechWEB.Controllers
         public ActionResult Index()
         {
             var listarTarefasRecorrentes = _tarefarecorrenteService.GetAll();
-            var listarTarefasRecorrentesModel = _mapper.Map<List<TarefaRecorrenteModel>>(listarTarefasRecorrentes);
+            List<TarefaRecorrenteModel> listarTarefasRecorrentesModel = _mapper.Map<List<TarefaRecorrenteModel>>(listarTarefasRecorrentes);
 
             return View(listarTarefasRecorrentesModel);
         }
