@@ -2,6 +2,7 @@ using AutoMapper;
 using CondoTechWEB.Models;
 using Core;
 using Core.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace CondoTechWEB.Controllers
 {
+    [Authorize]
     public class OcorrenciaController : Controller
     {
         IOcorrenciaService _ocorrenciaService;

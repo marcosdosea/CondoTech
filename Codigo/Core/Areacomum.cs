@@ -16,7 +16,6 @@ namespace Core
         public string Nome { get; set; }
         public string Descricao { get; set; }
 
-        public virtual Condominio IdCondominioNavigation { get; set; }
         public virtual ICollection<Disponibilidadearea> Disponibilidadearea { get; set; }
         public virtual ICollection<Reserva> Reserva { get; set; }
     }

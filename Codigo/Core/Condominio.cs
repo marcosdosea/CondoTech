@@ -7,11 +7,9 @@ namespace Core
     {
         public Condominio()
         {
-            Areacomum = new HashSet<Areacomum>();
-            Avisos = new HashSet<Avisos>();
+            Administradores = new HashSet<Administradores>();
             Condomino = new HashSet<Condomino>();
             Execucaotarefarecorrente = new HashSet<Execucaotarefarecorrente>();
-            Ocorrencias = new HashSet<Ocorrencias>();
         }
 
         public int IdCondominio { get; set; }
@@ -24,10 +22,8 @@ namespace Core
         public int? Numero { get; set; }
         public string Cep { get; set; }
 
-        public virtual ICollection<Areacomum> Areacomum { get; set; }
-        public virtual ICollection<Avisos> Avisos { get; set; }
+        public virtual ICollection<Administradores> Administradores { get; set; }
         public virtual ICollection<Condomino> Condomino { get; set; }
         public virtual ICollection<Execucaotarefarecorrente> Execucaotarefarecorrente { get; set; }
-        public virtual ICollection<Ocorrencias> Ocorrencias { get; set; }
     }
 }

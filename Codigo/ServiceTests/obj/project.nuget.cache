@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d0ceSYOwAecdObc/PHqlW0q3q+YBDMo7vUVhalwnZ/hP8m7HVJrgJlnu7oOK2GgirjDAFOnfKLfy/UjN+p2ERA==",
+  "dgSpecHash": "1N29vbQoQfLenUBWB5lixKuw9CjA77dmhTWNeocItYKmn9YqEyoYP6RjruWAt1qAuCl3pnjBoBDzVCxYjqVQBw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Raul\\Desktop\\UFS\\condotech\\CondoTech\\Codigo\\ServiceTests\\ServiceTests.csproj",
+  "projectFilePath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\Codigo\\ServiceTests\\ServiceTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Raul\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\Raul\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",

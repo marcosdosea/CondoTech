@@ -15,11 +15,20 @@ namespace Core
         {
         }
 
+        public virtual DbSet<Administradores> Administradores { get; set; }
         public virtual DbSet<Areacomum> Areacomum { get; set; }
+        public virtual DbSet<Aspnetroleclaims> Aspnetroleclaims { get; set; }
+        public virtual DbSet<Aspnetroles> Aspnetroles { get; set; }
+        public virtual DbSet<Aspnetuserclaims> Aspnetuserclaims { get; set; }
+        public virtual DbSet<Aspnetuserlogins> Aspnetuserlogins { get; set; }
+        public virtual DbSet<Aspnetuserroles> Aspnetuserroles { get; set; }
+        public virtual DbSet<Aspnetusers> Aspnetusers { get; set; }
+        public virtual DbSet<Aspnetusertokens> Aspnetusertokens { get; set; }
         public virtual DbSet<Avisos> Avisos { get; set; }
         public virtual DbSet<Condominio> Condominio { get; set; }
         public virtual DbSet<Condomino> Condomino { get; set; }
         public virtual DbSet<Disponibilidadearea> Disponibilidadearea { get; set; }
+        public virtual DbSet<Efmigrationshistory> Efmigrationshistory { get; set; }
         public virtual DbSet<Execucaotarefarecorrente> Execucaotarefarecorrente { get; set; }
         public virtual DbSet<Ocorrencias> Ocorrencias { get; set; }
         public virtual DbSet<Pessoa> Pessoa { get; set; }
@@ -31,13 +40,47 @@ namespace Core
         {
             if (!optionsBuilder.IsConfigured)
             {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=MasterOv;database=CondoTech");
+                //To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+               
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Administradores>(entity =>
+            {
+                entity.HasKey(e => new { e.IdPessoa, e.IdCondominio })
+                    .HasName("PRIMARY");
+
+                entity.ToTable("administradores");
+
+                entity.HasIndex(e => e.IdCondominio)
+                    .HasName("fk_pessoa_has_condominio_condominio2_idx");
+
+                entity.HasIndex(e => e.IdPessoa)
+                    .HasName("fk_pessoa_has_condominio_pessoa2_idx");
+
+                entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
+
+                entity.Property(e => e.IdCondominio).HasColumnName("idCondominio");
+
+                entity.Property(e => e.Tipo)
+                    .HasColumnName("tipo")
+                    .HasColumnType("enum('SINDICO','VICE')");
+
+                entity.HasOne(d => d.IdCondominioNavigation)
+                    .WithMany(p => p.Administradores)
+                    .HasForeignKey(d => d.IdCondominio)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_pessoa_has_condominio_condominio2");
+
+                entity.HasOne(d => d.IdPessoaNavigation)
+                    .WithMany(p => p.Administradores)
+                    .HasForeignKey(d => d.IdPessoa)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_pessoa_has_condominio_pessoa2");
+            });
+
             modelBuilder.Entity<Areacomum>(entity =>
             {
                 entity.HasKey(e => e.IdAreaComum)
@@ -62,12 +105,173 @@ namespace Core
                     .HasColumnName("nome")
                     .HasMaxLength(45)
                     .IsUnicode(false);
+            });
 
-                entity.HasOne(d => d.IdCondominioNavigation)
-                    .WithMany(p => p.Areacomum)
-                    .HasForeignKey(d => d.IdCondominio)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_areaComum_condominio1");
+            modelBuilder.Entity<Aspnetroleclaims>(entity =>
+            {
+                entity.ToTable("aspnetroleclaims");
+
+                entity.HasIndex(e => e.RoleId)
+                    .HasName("IX_AspNetRoleClaims_RoleId");
+
+                entity.Property(e => e.RoleId)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.Aspnetroleclaims)
+                    .HasForeignKey(d => d.RoleId)
+                    .HasConstraintName("FK_AspNetRoleClaims_AspNetRoles_RoleId");
+            });
+
+            modelBuilder.Entity<Aspnetroles>(entity =>
+            {
+                entity.ToTable("aspnetroles");
+
+                entity.HasIndex(e => e.NormalizedName)
+                    .HasName("RoleNameIndex")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).IsUnicode(false);
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NormalizedName)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Aspnetuserclaims>(entity =>
+            {
+                entity.ToTable("aspnetuserclaims");
+
+                entity.HasIndex(e => e.UserId)
+                    .HasName("IX_AspNetUserClaims_UserId");
+
+                entity.Property(e => e.UserId)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Aspnetuserclaims)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserClaims_AspNetUsers_UserId");
+            });
+
+            modelBuilder.Entity<Aspnetuserlogins>(entity =>
+            {
+                entity.HasKey(e => new { e.LoginProvider, e.ProviderKey })
+                    .HasName("PRIMARY");
+
+                entity.ToTable("aspnetuserlogins");
+
+                entity.HasIndex(e => e.UserId)
+                    .HasName("IX_AspNetUserLogins_UserId");
+
+                entity.Property(e => e.LoginProvider)
+                    .HasMaxLength(128)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProviderKey)
+                    .HasMaxLength(128)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserId)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Aspnetuserlogins)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserLogins_AspNetUsers_UserId");
+            });
+
+            modelBuilder.Entity<Aspnetuserroles>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.RoleId })
+                    .HasName("PRIMARY");
+
+                entity.ToTable("aspnetuserroles");
+
+                entity.HasIndex(e => e.RoleId)
+                    .HasName("IX_AspNetUserRoles_RoleId");
+
+                entity.Property(e => e.UserId).IsUnicode(false);
+
+                entity.Property(e => e.RoleId).IsUnicode(false);
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.Aspnetuserroles)
+                    .HasForeignKey(d => d.RoleId)
+                    .HasConstraintName("FK_AspNetUserRoles_AspNetRoles_RoleId");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Aspnetuserroles)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserRoles_AspNetUsers_UserId");
+            });
+
+            modelBuilder.Entity<Aspnetusers>(entity =>
+            {
+                entity.ToTable("aspnetusers");
+
+                entity.HasIndex(e => e.NormalizedEmail)
+                    .HasName("EmailIndex");
+
+                entity.HasIndex(e => e.NormalizedUserName)
+                    .HasName("UserNameIndex")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).IsUnicode(false);
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EmailConfirmed).HasColumnType("bit(1)");
+
+                entity.Property(e => e.LockoutEnabled).HasColumnType("bit(1)");
+
+                entity.Property(e => e.NormalizedEmail)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NormalizedUserName)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PhoneNumberConfirmed).HasColumnType("bit(1)");
+
+                entity.Property(e => e.TwoFactorEnabled).HasColumnType("bit(1)");
+
+                entity.Property(e => e.UserName)
+                    .HasMaxLength(256)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Aspnetusertokens>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name })
+                    .HasName("PRIMARY");
+
+                entity.ToTable("aspnetusertokens");
+
+                entity.Property(e => e.UserId).IsUnicode(false);
+
+                entity.Property(e => e.LoginProvider)
+                    .HasMaxLength(128)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(128)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Aspnetusertokens)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserTokens_AspNetUsers_UserId");
             });
 
             modelBuilder.Entity<Avisos>(entity =>
@@ -96,12 +300,6 @@ namespace Core
                     .HasColumnName("descricao")
                     .HasMaxLength(1000)
                     .IsUnicode(false);
-
-                entity.HasOne(d => d.IdCondominioNavigation)
-                    .WithMany(p => p.Avisos)
-                    .HasForeignKey(d => d.IdCondominio)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_avisos_condominio1");
 
                 entity.HasOne(d => d.IdPessoaNavigation)
                     .WithMany(p => p.Avisos)
@@ -221,6 +419,23 @@ namespace Core
                     .HasConstraintName("fk_DisponibilidadeArea_areaComum1");
             });
 
+            modelBuilder.Entity<Efmigrationshistory>(entity =>
+            {
+                entity.HasKey(e => e.MigrationId)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("__efmigrationshistory");
+
+                entity.Property(e => e.MigrationId)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProductVersion)
+                    .IsRequired()
+                    .HasMaxLength(32)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<Execucaotarefarecorrente>(entity =>
             {
                 entity.HasKey(e => new { e.IdCondominio, e.IdTarefaRecorrente })
@@ -293,12 +508,6 @@ namespace Core
                 entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
 
                 entity.Property(e => e.IdTipoOcorrencia).HasColumnName("idTipoOcorrencia");
-
-                entity.HasOne(d => d.IdCondominioNavigation)
-                    .WithMany(p => p.Ocorrencias)
-                    .HasForeignKey(d => d.IdCondominio)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_ocorrencias_condominio1");
 
                 entity.HasOne(d => d.IdPessoaNavigation)
                     .WithMany(p => p.Ocorrencias)

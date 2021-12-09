@@ -2,6 +2,7 @@
 using CondoTechWEB.Models;
 using Core;
 using Core.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace CondoTechWEB.Controllers
 {
+    [Authorize]
     public class TarefaRecorrenteController : Controller
     {
 

@@ -7,6 +7,7 @@ namespace Core
     {
         public Pessoa()
         {
+            Administradores = new HashSet<Administradores>();
             Avisos = new HashSet<Avisos>();
             Condomino = new HashSet<Condomino>();
             Execucaotarefarecorrente = new HashSet<Execucaotarefarecorrente>();
@@ -22,6 +23,7 @@ namespace Core
         public string Senha { get; set; }
         public string Status { get; set; }
 
+        public virtual ICollection<Administradores> Administradores { get; set; }
         public virtual ICollection<Avisos> Avisos { get; set; }
         public virtual ICollection<Condomino> Condomino { get; set; }
         public virtual ICollection<Execucaotarefarecorrente> Execucaotarefarecorrente { get; set; }
