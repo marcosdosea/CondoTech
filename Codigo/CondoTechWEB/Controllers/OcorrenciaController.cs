@@ -2,6 +2,7 @@
 using CondoTechWEB.Models;
 using Core;
 using Core.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace CondoTechWEB.Controllers
 {
+    [Authorize]
     public class OcorrenciaController : Controller
     {
         IOcorrenciaService _ocorrenciaService;

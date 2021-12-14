@@ -6519,19 +6519,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MasterOv\\.nuget\\packages\\": {}
+    "C:\\Users\\Raul\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\MasterOv\\.nuget\\packages\\",
-      "outputPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\obj\\",
+      "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\Raul\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\Codigo\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\MasterOv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Raul\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

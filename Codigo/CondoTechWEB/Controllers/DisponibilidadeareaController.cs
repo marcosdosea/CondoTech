@@ -13,7 +13,8 @@ using System.Threading.Tasks;
 
 namespace CondoTechWEB.Controllers
 {
-    public class DisponibilidadeareaController : Controller
+	[Authorize]
+	public class DisponibilidadeareaController : Controller
     {
 		private readonly IDisponibilidadeareaService _disponibilidadeareaService;
 		private readonly IAreacomumService _areacomumService;

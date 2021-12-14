@@ -1,4 +1,5 @@
 ﻿using CondoTechWEB.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace CondoTechWEB.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
 #pragma warning disable IDE0052 // Remover membros particulares não lidos

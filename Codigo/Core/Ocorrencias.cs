@@ -11,7 +11,6 @@ namespace Core
         public int IdCondominio { get; set; }
         public int IdTipoOcorrencia { get; set; }
 
-        public virtual Condominio IdCondominioNavigation { get; set; }
         public virtual Pessoa IdPessoaNavigation { get; set; }
         public virtual Tipoocorrencia IdTipoOcorrenciaNavigation { get; set; }
     }

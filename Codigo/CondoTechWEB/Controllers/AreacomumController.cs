@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace CondoTechWEB.Controllers
 {
+	[Authorize]
     public class AreacomumController : Controller
     {
 		private readonly IAreacomumService _areacomumService;
@@ -46,8 +47,8 @@ namespace CondoTechWEB.Controllers
 		// GET: AreacomumController/Create
 		public ActionResult Create()
 		{
-			IEnumerable<Condominio> listacondominios = _condominioService.GetAll();
-			ViewBag.IdCondominio = new SelectList(listacondominios, "IdCondominio", "Nome", null);
+			//IEnumerable<Condominio> listacondominios = _condominioService.GetAll();
+			//ViewBag.IdCondominio = new SelectList(listacondominios, "IdCondominio", "Nome", null);
 			return View();
 		}
 

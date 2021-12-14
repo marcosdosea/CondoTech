@@ -7944,11 +7944,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Raul\\Desktop\\UFS\\condotech\\CondoTech\\Codigo\\ServiceTests\\ServiceTests.csproj",
+      "projectUniqueName": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\Codigo\\ServiceTests\\ServiceTests.csproj",
       "projectName": "ServiceTests",
-      "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\condotech\\CondoTech\\Codigo\\ServiceTests\\ServiceTests.csproj",
+      "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\Codigo\\ServiceTests\\ServiceTests.csproj",
       "packagesPath": "C:\\Users\\Raul\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Raul\\Desktop\\UFS\\condotech\\CondoTech\\Codigo\\ServiceTests\\obj\\",
+      "outputPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\Codigo\\ServiceTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Raul\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7965,8 +7965,8 @@
         "net5.0": {
           "targetAlias": ".NETCoreApp,Version=v5.0",
           "projectReferences": {
-            "C:\\Users\\Raul\\Desktop\\UFS\\condotech\\CondoTech\\Codigo\\Service\\Service.csproj": {
-              "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\condotech\\CondoTech\\Codigo\\Service\\Service.csproj"
+            "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\Codigo\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\Codigo\\Service\\Service.csproj"
             }
           }
         }

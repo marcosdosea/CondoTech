@@ -5,9 +5,11 @@ using CondoTechWEB.Models;
 using System.Collections.Generic;
 using Core.Service;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CondoTechWEB.Controllers
 {
+    [Authorize]
     public class CondominioController : Controller
     {
         private readonly ICondominioService _condominioService;
