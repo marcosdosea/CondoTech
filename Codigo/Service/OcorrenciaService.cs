@@ -29,6 +29,18 @@ namespace Service
             return _ocorrencia;
         }
 
+        public IQueryable<Ocorrencias> GetQuery()
+        {
+            var query = from Ocorrencias in _context.Ocorrencias
+                        select Ocorrencias;
+            return query;
+        }
+
+        public IEnumerable<Ocorrencias> GetAll()
+        {
+            return GetQuery();
+        }
+
         public int Insert(Ocorrencias ocorrencia)
         {
             _context.Add(ocorrencia);

@@ -16,6 +16,8 @@ namespace Core.Service
 
         Ocorrencias Get(int IdOcorrencias);
 
+        IEnumerable<Ocorrencias> GetAll();
+
         void Delete(int IdOcorrencias);
     }
 }

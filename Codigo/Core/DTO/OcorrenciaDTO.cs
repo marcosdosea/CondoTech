@@ -9,7 +9,7 @@ namespace Core.DTO
     public class OcorrenciaDTO
     {
         public string Descricao { get; set; }
-        public string Tipo { get; set; }
+        public int IdTipoOcorrencia { get; set; }
 
     }
 }
