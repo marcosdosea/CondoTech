@@ -16,12 +16,11 @@ namespace CondoTechWEB.Models
         public int IdOcorrencias { get; set; }
 
         [Required(ErrorMessage ="Campo Requerido")]
-        [StringLength(45, MinimumLength = 5, ErrorMessage = "Ocorrencia fora do formato")]
+        [StringLength(80, MinimumLength = 5, ErrorMessage = "Descrição inadequada")]
 
         public string Descricao { get; set; }
 
-        [Display(Name = "Tipo")]
-        [StringLength(45, MinimumLength = 5, ErrorMessage = "Tipo Inválido")]
+        [StringLength(45, MinimumLength = 5, ErrorMessage = "Tipo de ocorrência inadequado")]
         public string Tipo { get; set; }
 
         
