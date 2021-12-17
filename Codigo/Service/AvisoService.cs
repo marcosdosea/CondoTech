@@ -8,48 +8,47 @@ using Core.Service;
 
 namespace Service
 {
-    public class AvisosService : IAvisoService
+    public class AvisoService : IAvisoService
     {
         private readonly CondoTechContext _context;
 
-        public AvisosService(CondoTechContext context) {
+        public AvisoService(CondoTechContext context) {
             _context = context;
         }
-        public void Update(Avisos avisos)
+        public void Update(Aviso aviso)
         {
-            _context.Update(avisos);
+            _context.Update(aviso);
             _context.SaveChanges();
             //throw new NotImplementedException();
         }
 
-        private IQueryable<Avisos> GetQuery() {
-            IQueryable<Avisos> tb_avisos = _context.Avisos;
+        private IQueryable<Aviso> GetQuery() {
+            IQueryable<Aviso> tb_avisos = _context.Aviso;
             var query = from avisos in tb_avisos select avisos;
             return query;
         }
 
-        public Avisos Get(int idAviso)
-        {
-            IEnumerable<Avisos> avisos = GetQuery().Where(avisosModel => avisosModel.IdAviso.Equals(idAviso));
+        public Aviso Get(int idAviso) {
+            IEnumerable<Aviso> avisos = GetQuery().Where(avisosModel => avisosModel.idAviso.Equals(idAviso));
             return avisos.ElementAtOrDefault(0);
         }
 
-        public int Insert(Avisos avisos)
+        public int Insert(Aviso aviso)
         {
-            _context.Add(avisos);
+            _context.Add(aviso);
             _context.SaveChanges();
-            return avisos.IdAviso;
+            return aviso.idAviso;
         }
 
-        public IEnumerable<Avisos> obterTodosAvisos()
+        public IEnumerable<Aviso> obterTodosAvisos()
         {
             return GetQuery();
         }
 
         public void Delete(int idAviso)
         {
-            var _aviso = _context.Avisos.Find(idAviso);
-            _context.Avisos.Remove(_aviso);
+            var _aviso = _context.Aviso.Find(idAviso);
+            _context.Remove(_aviso);
             _context.SaveChanges();
         }
     }

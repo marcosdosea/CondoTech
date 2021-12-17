@@ -37,7 +37,7 @@ namespace CondoTechWEB
 
             //Injeção de dependência Services
             services.AddTransient<IAreacomumService, AreacomumService>();
-            services.AddTransient<IAvisoService, AvisosService>();
+            services.AddTransient<IAvisoService, AvisoService>();
             services.AddTransient<ICondominioService, CondominioService>();
             services.AddTransient<IOcorrenciaService, OcorrenciaService>();
             services.AddTransient<ITarefaRecorrenteService, TarefaRecorrenteService>();
