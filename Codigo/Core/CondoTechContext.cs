@@ -24,7 +24,7 @@ namespace Core
         public virtual DbSet<Aspnetuserroles> Aspnetuserroles { get; set; }
         public virtual DbSet<Aspnetusers> Aspnetusers { get; set; }
         public virtual DbSet<Aspnetusertokens> Aspnetusertokens { get; set; }
-        public virtual DbSet<Avisos> Avisos { get; set; }
+        public virtual DbSet<Aviso> Aviso { get; set; }
         public virtual DbSet<Condominio> Condominio { get; set; }
         public virtual DbSet<Condomino> Condomino { get; set; }
         public virtual DbSet<Disponibilidadearea> Disponibilidadearea { get; set; }
@@ -274,36 +274,36 @@ namespace Core
                     .HasConstraintName("FK_AspNetUserTokens_AspNetUsers_UserId");
             });
 
-            modelBuilder.Entity<Avisos>(entity =>
+            modelBuilder.Entity<Aviso>(entity =>
             {
-                entity.HasKey(e => new { e.IdAviso, e.IdPessoa, e.IdCondominio })
+                entity.HasKey(e => new { e.idAviso, e.idPessoa, e.idCondominio })
                     .HasName("PRIMARY");
 
-                entity.ToTable("avisos");
+                entity.ToTable("aviso");
 
-                entity.HasIndex(e => e.IdCondominio)
+                entity.HasIndex(e => e.idCondominio)
                     .HasName("fk_avisos_condominio1_idx");
 
-                entity.HasIndex(e => e.IdPessoa)
+                entity.HasIndex(e => e.idPessoa)
                     .HasName("fk_avisos_pessoa1_idx");
 
-                entity.Property(e => e.IdAviso).HasColumnName("idAviso");
+                entity.Property(e => e.idAviso).HasColumnName("idAviso");
 
-                entity.Property(e => e.IdPessoa).HasColumnName("idPessoa");
+                entity.Property(e => e.idPessoa).HasColumnName("idPessoa");
 
-                entity.Property(e => e.IdCondominio).HasColumnName("idCondominio");
+                entity.Property(e => e.idCondominio).HasColumnName("idCondominio");
 
-                entity.Property(e => e.Data).HasColumnName("data");
+                entity.Property(e => e.data).HasColumnName("data");
 
-                entity.Property(e => e.Descricao)
+                entity.Property(e => e.descricao)
                     .IsRequired()
                     .HasColumnName("descricao")
                     .HasMaxLength(1000)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.IdPessoaNavigation)
-                    .WithMany(p => p.Avisos)
-                    .HasForeignKey(d => d.IdPessoa)
+                    .WithMany(p => p.Aviso)
+                    .HasForeignKey(d => d.idPessoa)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_avisos_pessoa1");
             });

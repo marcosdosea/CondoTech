@@ -7,7 +7,7 @@ namespace Mappers
     public class AvisosProfile : Profile
     {
         public AvisosProfile() {
-            CreateMap<AvisosModel, Avisos>().ReverseMap();
+            CreateMap<AvisoModel, Aviso>().ReverseMap();
         }
     }
 }

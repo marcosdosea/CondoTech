@@ -6519,19 +6519,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Raul\\.nuget\\packages\\": {}
+    "C:\\Users\\MasterOv\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj",
+      "projectUniqueName": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\Codigo\\Core\\Core.csproj",
-      "packagesPath": "C:\\Users\\Raul\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Raul\\Desktop\\UFS\\6 Periodo\\CondoTech\\CondoTech\\Codigo\\Core\\obj\\",
+      "projectPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\MasterOv\\.nuget\\packages\\",
+      "outputPath": "F:\\Projetos_Pessoais\\CondoTech\\Codigo\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Raul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MasterOv\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6583,7 +6583,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

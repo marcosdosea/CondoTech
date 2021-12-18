@@ -8,10 +8,10 @@ namespace Core.Service
 {
     public interface IAvisoService
     {
-        int Insert(Avisos avisos);
-        Avisos Get(int idAviso);
-        IEnumerable<Avisos> obterTodosAvisos();
-        void Delete(int idAviso);
-        void Update(Avisos avisos);
+        int Insert(Aviso aviso);
+        Aviso Get(int idAviso);
+        IEnumerable<Aviso> obterTodosAvisos();
+        void Delete(int idAviso, int idPessoa, int idCondominio);
+        void Update(Aviso aviso);
     }
 }
