@@ -11,7 +11,7 @@ namespace Core.Service
         int Insert(Aviso aviso);
         Aviso Get(int idAviso);
         IEnumerable<Aviso> obterTodosAvisos();
-        void Delete(int idAviso);
+        void Delete(int idAviso, int idPessoa, int idCondominio);
         void Update(Aviso aviso);
     }
 }

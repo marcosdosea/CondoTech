@@ -100,7 +100,8 @@ namespace CondoTechWEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, AvisoModel avisoModel)
         {
-                _avisoService.Delete(id);
+                Aviso aviroRecebido = _avisoService.Get(id);
+                _avisoService.Delete(id,aviroRecebido.idPessoa,aviroRecebido.idCondominio);
                 return RedirectToAction(nameof(Index));
         }
     }
